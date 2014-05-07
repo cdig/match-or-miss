@@ -26,7 +26,7 @@
 		<div ng-show="badResults.length > 0">
 			<h1>Let's Review</h1>
 			<div class="current" ng-repeat="choice in badResults | limitTo:1">
-				<div class="image"><span cd-bimg="assets/{{choice.image}}"></span></div>
+				<div class="image"><span cd-bimg="content/{{choice.image}}"></span></div>
 				<h2 class="name">{{choice.name}}</h2>
 			</div>
 			<h3><a class="button" ng-click="badResults.shift()">Next</a></h3>
