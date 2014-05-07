@@ -1,6 +1,6 @@
 html {
 	background:
-		url('assets/ct_truck.png'),
+		url('content/background.png'), // TODO: this needs to be dynamic!
 		url('assets/grid_lines.png'),
 		radial-gradient(ellipse at center, #2a69bf 8%, #07469a 64%, #12386b 100%);
 	background-position: center bottom 20%;

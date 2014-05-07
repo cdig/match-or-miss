@@ -26,7 +26,7 @@ angular.module 'run', []
 			toRoute.scope.route = $location.path()[1..] if $location.path()? and toRoute?.scope?
 	
 	# Load the content.json file. Blink and you'll miss it!
-	$rootScope.contentPromise = $http.get('assets/content.json')
+	$rootScope.contentPromise = $http.get('content/content.json')
 	$rootScope.contentPromise.then (response)->
 		# Parse the JSON text into JavaScript objects
 		$rootScope.content = angular.fromJson(response.data)

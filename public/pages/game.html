@@ -16,7 +16,7 @@
 <div class="choices">
 	<a class="choice" ng-repeat="choice in game.choices | limitTo:difficulty" ng-click="pick(choice, $index)">
 		<span ng-class="choice.correctness">
-			<span cd-bimg="assets/{{choice.image}}"></span>
+			<span cd-bimg="content/{{choice.image}}"></span>
 		</span>
 	</a>
 </div>

@@ -67,7 +67,7 @@
         }
       });
     });
-    $rootScope.contentPromise = $http.get('assets/content.json');
+    $rootScope.contentPromise = $http.get('content/content.json');
     return $rootScope.contentPromise.then(function(response) {
       return $rootScope.content = angular.fromJson(response.data);
     });
