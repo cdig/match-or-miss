@@ -1,0 +1,1 @@
+Copyright 2014 CD Industrial Group Inc.
