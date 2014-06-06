@@ -1,6 +1,6 @@
 {
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
-"creatorBuild": "16903",
+"creatorBuild": "17018",
 "files": {
 	"\/public\/app.css": {
 		"fileType": 16,
@@ -33,39 +33,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/accumulator.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 6040,
-		"inputAbbreviatedPath": "\/public\/content\/accumulator.png",
-		"outputAbbreviatedPath": "\/public\/content\/accumulator.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/public\/content\/adjustable_flow_control.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 3548,
-		"inputAbbreviatedPath": "\/public\/content\/adjustable_flow_control.png",
-		"outputAbbreviatedPath": "\/public\/content\/adjustable_flow_control.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/public\/content\/adjustable_spring.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 4247,
-		"inputAbbreviatedPath": "\/public\/content\/adjustable_spring.png",
-		"outputAbbreviatedPath": "\/public\/content\/adjustable_spring.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/public\/content\/background.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -77,464 +44,497 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/ball_valve.png": {
+	"\/public\/content\/symbols\/accumulator.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6040,
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/accumulator.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/accumulator.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/content\/symbols\/adjustable_flow_control.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3548,
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/adjustable_flow_control.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/adjustable_flow_control.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/content\/symbols\/adjustable_spring.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4247,
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/adjustable_spring.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/adjustable_spring.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/public\/content\/symbols\/ball_valve.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 3492,
-		"inputAbbreviatedPath": "\/public\/content\/ball_valve.png",
-		"outputAbbreviatedPath": "\/public\/content\/ball_valve.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/ball_valve.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/ball_valve.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/basic_motor.png": {
+	"\/public\/content\/symbols\/basic_motor.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 6613,
-		"inputAbbreviatedPath": "\/public\/content\/basic_motor.png",
-		"outputAbbreviatedPath": "\/public\/content\/basic_motor.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/basic_motor.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/basic_motor.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/bidirectional_motor.png": {
+	"\/public\/content\/symbols\/bidirectional_motor.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 6999,
-		"inputAbbreviatedPath": "\/public\/content\/bidirectional_motor.png",
-		"outputAbbreviatedPath": "\/public\/content\/bidirectional_motor.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/bidirectional_motor.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/bidirectional_motor.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/bidirectional_motor_with_variable_displacement.png": {
+	"\/public\/content\/symbols\/bidirectional_motor_with_variable_displacement.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 9312,
-		"inputAbbreviatedPath": "\/public\/content\/bidirectional_motor_with_variable_displacement.png",
-		"outputAbbreviatedPath": "\/public\/content\/bidirectional_motor_with_variable_displacement.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/bidirectional_motor_with_variable_displacement.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/bidirectional_motor_with_variable_displacement.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/check_valve.png": {
+	"\/public\/content\/symbols\/check_valve.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 3934,
-		"inputAbbreviatedPath": "\/public\/content\/check_valve.png",
-		"outputAbbreviatedPath": "\/public\/content\/check_valve.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/check_valve.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/check_valve.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/cooler.png": {
+	"\/public\/content\/symbols\/cooler.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 6666,
-		"inputAbbreviatedPath": "\/public\/content\/cooler.png",
-		"outputAbbreviatedPath": "\/public\/content\/cooler.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/cooler.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/cooler.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/cushioned_on_both_ends_cylinder.png": {
+	"\/public\/content\/symbols\/cushioned_on_both_ends_cylinder.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 2784,
-		"inputAbbreviatedPath": "\/public\/content\/cushioned_on_both_ends_cylinder.png",
-		"outputAbbreviatedPath": "\/public\/content\/cushioned_on_both_ends_cylinder.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/cushioned_on_both_ends_cylinder.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/cushioned_on_both_ends_cylinder.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/cushioned_rod_end_cylinder.png": {
+	"\/public\/content\/symbols\/cushioned_rod_end_cylinder.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 2538,
-		"inputAbbreviatedPath": "\/public\/content\/cushioned_rod_end_cylinder.png",
-		"outputAbbreviatedPath": "\/public\/content\/cushioned_rod_end_cylinder.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/cushioned_rod_end_cylinder.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/cushioned_rod_end_cylinder.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/cylinder.png": {
+	"\/public\/content\/symbols\/cylinder.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 2360,
-		"inputAbbreviatedPath": "\/public\/content\/cylinder.png",
-		"outputAbbreviatedPath": "\/public\/content\/cylinder.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/cylinder.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/cylinder.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/directional_valve.png": {
+	"\/public\/content\/symbols\/directional_valve.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 25089,
-		"inputAbbreviatedPath": "\/public\/content\/directional_valve.png",
-		"outputAbbreviatedPath": "\/public\/content\/directional_valve.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/directional_valve.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/directional_valve.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/double_rod_cylinder.png": {
+	"\/public\/content\/symbols\/double_rod_cylinder.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 2575,
-		"inputAbbreviatedPath": "\/public\/content\/double_rod_cylinder.png",
-		"outputAbbreviatedPath": "\/public\/content\/double_rod_cylinder.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/double_rod_cylinder.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/double_rod_cylinder.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/drain_line.png": {
+	"\/public\/content\/symbols\/drain_line.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 1460,
-		"inputAbbreviatedPath": "\/public\/content\/drain_line.png",
-		"outputAbbreviatedPath": "\/public\/content\/drain_line.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/drain_line.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/drain_line.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/electric_line.png": {
+	"\/public\/content\/symbols\/electric_line.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 2254,
-		"inputAbbreviatedPath": "\/public\/content\/electric_line.png",
-		"outputAbbreviatedPath": "\/public\/content\/electric_line.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/electric_line.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/electric_line.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/electric_motor.png": {
+	"\/public\/content\/symbols\/electric_motor.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 7500,
-		"inputAbbreviatedPath": "\/public\/content\/electric_motor.png",
-		"outputAbbreviatedPath": "\/public\/content\/electric_motor.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/electric_motor.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/electric_motor.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/filter.png": {
+	"\/public\/content\/symbols\/filter.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 5023,
-		"inputAbbreviatedPath": "\/public\/content\/filter.png",
-		"outputAbbreviatedPath": "\/public\/content\/filter.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/filter.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/filter.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/fixed_orifice.png": {
+	"\/public\/content\/symbols\/fixed_orifice.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 2428,
-		"inputAbbreviatedPath": "\/public\/content\/fixed_orifice.png",
-		"outputAbbreviatedPath": "\/public\/content\/fixed_orifice.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/fixed_orifice.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/fixed_orifice.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/flexible_line.png": {
+	"\/public\/content\/symbols\/flexible_line.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 2721,
-		"inputAbbreviatedPath": "\/public\/content\/flexible_line.png",
-		"outputAbbreviatedPath": "\/public\/content\/flexible_line.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/flexible_line.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/flexible_line.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/flow_meter.png": {
+	"\/public\/content\/symbols\/flow_meter.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 9914,
-		"inputAbbreviatedPath": "\/public\/content\/flow_meter.png",
-		"outputAbbreviatedPath": "\/public\/content\/flow_meter.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/flow_meter.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/flow_meter.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/hand_pump.png": {
+	"\/public\/content\/symbols\/hand_pump.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 7675,
-		"inputAbbreviatedPath": "\/public\/content\/hand_pump.png",
-		"outputAbbreviatedPath": "\/public\/content\/hand_pump.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/hand_pump.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/hand_pump.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/heat_motor.png": {
+	"\/public\/content\/symbols\/heat_motor.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 2480,
-		"inputAbbreviatedPath": "\/public\/content\/heat_motor.png",
-		"outputAbbreviatedPath": "\/public\/content\/heat_motor.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/heat_motor.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/heat_motor.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/heater.png": {
+	"\/public\/content\/symbols\/heater.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 7441,
-		"inputAbbreviatedPath": "\/public\/content\/heater.png",
-		"outputAbbreviatedPath": "\/public\/content\/heater.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/heater.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/heater.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/hop_over.png": {
+	"\/public\/content\/symbols\/hop_over.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 2183,
-		"inputAbbreviatedPath": "\/public\/content\/hop_over.png",
-		"outputAbbreviatedPath": "\/public\/content\/hop_over.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/hop_over.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/hop_over.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/hydraulic_force.png": {
+	"\/public\/content\/symbols\/hydraulic_force.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 1686,
-		"inputAbbreviatedPath": "\/public\/content\/hydraulic_force.png",
-		"outputAbbreviatedPath": "\/public\/content\/hydraulic_force.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/hydraulic_force.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/hydraulic_force.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/linkage_pivot_point.png": {
+	"\/public\/content\/symbols\/linkage_pivot_point.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 3006,
-		"inputAbbreviatedPath": "\/public\/content\/linkage_pivot_point.png",
-		"outputAbbreviatedPath": "\/public\/content\/linkage_pivot_point.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/linkage_pivot_point.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/linkage_pivot_point.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/manifold_line.png": {
+	"\/public\/content\/symbols\/manifold_line.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 730,
-		"inputAbbreviatedPath": "\/public\/content\/manifold_line.png",
-		"outputAbbreviatedPath": "\/public\/content\/manifold_line.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/manifold_line.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/manifold_line.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/mechanical_connection.png": {
+	"\/public\/content\/symbols\/mechanical_connection.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 811,
-		"inputAbbreviatedPath": "\/public\/content\/mechanical_connection.png",
-		"outputAbbreviatedPath": "\/public\/content\/mechanical_connection.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/mechanical_connection.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/mechanical_connection.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/mechanical_friction.png": {
+	"\/public\/content\/symbols\/mechanical_friction.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 2461,
-		"inputAbbreviatedPath": "\/public\/content\/mechanical_friction.png",
-		"outputAbbreviatedPath": "\/public\/content\/mechanical_friction.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/mechanical_friction.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/mechanical_friction.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/pilot_line.png": {
+	"\/public\/content\/symbols\/pilot_line.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 17960,
-		"inputAbbreviatedPath": "\/public\/content\/pilot_line.png",
-		"outputAbbreviatedPath": "\/public\/content\/pilot_line.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/pilot_line.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/pilot_line.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/pneumatic_line.png": {
+	"\/public\/content\/symbols\/pneumatic_line.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 3127,
-		"inputAbbreviatedPath": "\/public\/content\/pneumatic_line.png",
-		"outputAbbreviatedPath": "\/public\/content\/pneumatic_line.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/pneumatic_line.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/pneumatic_line.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/pressure_gauge.png": {
+	"\/public\/content\/symbols\/pressure_gauge.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 8171,
-		"inputAbbreviatedPath": "\/public\/content\/pressure_gauge.png",
-		"outputAbbreviatedPath": "\/public\/content\/pressure_gauge.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/pressure_gauge.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/pressure_gauge.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/pump.png": {
+	"\/public\/content\/symbols\/pump.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 6254,
-		"inputAbbreviatedPath": "\/public\/content\/pump.png",
-		"outputAbbreviatedPath": "\/public\/content\/pump.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/pump.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/pump.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/quick_coupler.png": {
+	"\/public\/content\/symbols\/quick_coupler.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 4505,
-		"inputAbbreviatedPath": "\/public\/content\/quick_coupler.png",
-		"outputAbbreviatedPath": "\/public\/content\/quick_coupler.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/quick_coupler.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/quick_coupler.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/return_drain_below.png": {
+	"\/public\/content\/symbols\/return_drain_below.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 1284,
-		"inputAbbreviatedPath": "\/public\/content\/return_drain_below.png",
-		"outputAbbreviatedPath": "\/public\/content\/return_drain_below.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/return_drain_below.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/return_drain_below.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/rotary_connection.png": {
+	"\/public\/content\/symbols\/rotary_connection.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 6359,
-		"inputAbbreviatedPath": "\/public\/content\/rotary_connection.png",
-		"outputAbbreviatedPath": "\/public\/content\/rotary_connection.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/rotary_connection.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/rotary_connection.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/shaft_coupling.png": {
+	"\/public\/content\/symbols\/shaft_coupling.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 1680,
-		"inputAbbreviatedPath": "\/public\/content\/shaft_coupling.png",
-		"outputAbbreviatedPath": "\/public\/content\/shaft_coupling.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/shaft_coupling.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/shaft_coupling.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/shuttle_valve.png": {
+	"\/public\/content\/symbols\/shuttle_valve.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 4950,
-		"inputAbbreviatedPath": "\/public\/content\/shuttle_valve.png",
-		"outputAbbreviatedPath": "\/public\/content\/shuttle_valve.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/shuttle_valve.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/shuttle_valve.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/spring.png": {
+	"\/public\/content\/symbols\/spring.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 3180,
-		"inputAbbreviatedPath": "\/public\/content\/spring.png",
-		"outputAbbreviatedPath": "\/public\/content\/spring.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/spring.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/spring.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/spring_loaded_check_valve.png": {
+	"\/public\/content\/symbols\/spring_loaded_check_valve.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 6553,
-		"inputAbbreviatedPath": "\/public\/content\/spring_loaded_check_valve.png",
-		"outputAbbreviatedPath": "\/public\/content\/spring_loaded_check_valve.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/spring_loaded_check_valve.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/spring_loaded_check_valve.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/temperature_gauge.png": {
+	"\/public\/content\/symbols\/temperature_gauge.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 7586,
-		"inputAbbreviatedPath": "\/public\/content\/temperature_gauge.png",
-		"outputAbbreviatedPath": "\/public\/content\/temperature_gauge.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/temperature_gauge.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/temperature_gauge.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/three_way_connection.png": {
+	"\/public\/content\/symbols\/three_way_connection.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 1648,
-		"inputAbbreviatedPath": "\/public\/content\/three_way_connection.png",
-		"outputAbbreviatedPath": "\/public\/content\/three_way_connection.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/three_way_connection.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/three_way_connection.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/variable_pump.png": {
+	"\/public\/content\/symbols\/variable_pump.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 8570,
-		"inputAbbreviatedPath": "\/public\/content\/variable_pump.png",
-		"outputAbbreviatedPath": "\/public\/content\/variable_pump.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/variable_pump.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/variable_pump.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/working_pressure_line.png": {
+	"\/public\/content\/symbols\/working_pressure_line.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 724,
-		"inputAbbreviatedPath": "\/public\/content\/working_pressure_line.png",
-		"outputAbbreviatedPath": "\/public\/content\/working_pressure_line.png",
+		"inputAbbreviatedPath": "\/public\/content\/symbols\/working_pressure_line.png",
+		"outputAbbreviatedPath": "\/public\/content\/symbols\/working_pressure_line.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1065,12 +1065,16 @@
 			"active": 0,
 			"flagValue": 3
 			},
-		"no-unnecessary_fat_arrows": {
+		"no_backticks": {
 			"active": 1,
 			"flagValue": -1
 			},
-		"no_backticks": {
+		"no_debugger": {
 			"active": 1,
+			"flagValue": -1
+			},
+		"no_empty_functions": {
+			"active": 0,
 			"flagValue": -1
 			},
 		"no_empty_param_list": {
@@ -1082,6 +1086,10 @@
 			"flagValue": -1
 			},
 		"no_implicit_parens": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_interpolation_in_single_quotes": {
 			"active": 0,
 			"flagValue": -1
 			},
@@ -1106,6 +1114,14 @@
 			"flagValue": -1
 			},
 		"no_trailing_whitespace": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_unnecessary_double_quotes": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_unnecessary_fat_arrows": {
 			"active": 1,
 			"flagValue": -1
 			},
@@ -1227,10 +1243,6 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"gcl": {
-			"active": 0,
-			"flagValue": -1
-			},
 		"globalstrict": {
 			"active": 0,
 			"flagValue": -1
@@ -1343,10 +1355,6 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"onevar": {
-			"active": 0,
-			"flagValue": -1
-			},
 		"phantom": {
 			"active": 0,
 			"flagValue": -1
@@ -1383,10 +1391,6 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"smarttabs": {
-			"active": 0,
-			"flagValue": -1
-			},
 		"strict": {
 			"active": 0,
 			"flagValue": -1
@@ -1399,10 +1403,6 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"trailing": {
-			"active": 1,
-			"flagValue": -1
-			},
 		"typed": {
 			"active": 0,
 			"flagValue": -1
@@ -1413,10 +1413,6 @@
 			},
 		"unused": {
 			"active": 1,
-			"flagValue": -1
-			},
-		"white": {
-			"active": 0,
 			"flagValue": -1
 			},
 		"withstmt": {
