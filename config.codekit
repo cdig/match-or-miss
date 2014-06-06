@@ -341,17 +341,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/content\/symbols\/manifold_line.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 730,
-		"inputAbbreviatedPath": "\/public\/content\/symbols\/manifold_line.png",
-		"outputAbbreviatedPath": "\/public\/content\/symbols\/manifold_line.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/public\/content\/symbols\/mechanical_connection.png": {
 		"fileType": 32768,
 		"ignore": 0,
