@@ -11,11 +11,11 @@ angular.module 'results', []
 		# Figure out the quip
 		secondsPerQuestion = (game.time/$rootScope.ticksPerSecond) / $rootScope.length
 		$scope.quip = switch
-			when game.mistakes is 0 and secondsPerQuestion <= 1.1 then "That Was Amazing!"
-			when game.mistakes is 0 and secondsPerQuestion >= 2.0 then "You Need To Go Faster"
-			when game.mistakes <= 1 and secondsPerQuestion <= 1.5 then "Great Job"
-			when game.mistakes <= 2 and secondsPerQuestion <= 2.5 then "You Did Well"
-			when game.mistakes <= 6 and secondsPerQuestion <= 1.2 then "You Need To Slow Down"
+			when game.mistakes is 0 and secondsPerQuestion <= 1.2 then "That Was Amazing!"
+			when game.mistakes is 0 and secondsPerQuestion >= 2.2 then "You should go faster."
+			when game.mistakes <= 1 and secondsPerQuestion <= 1.7 then "Great job!"
+			when game.mistakes <= 2 and secondsPerQuestion <= 3.0 then "You did pretty well."
+			when game.mistakes <= 6 and secondsPerQuestion <= 1.3 then "You should slow down."
 			when game.mistakes >= $rootScope.length then "You're not even trying!"
 			else "Rough day, huh?"
 

@@ -197,16 +197,16 @@
       secondsPerQuestion = (game.time / $rootScope.ticksPerSecond) / $rootScope.length;
       $scope.quip = (function() {
         switch (false) {
-          case !(game.mistakes === 0 && secondsPerQuestion <= 1.1):
+          case !(game.mistakes === 0 && secondsPerQuestion <= 1.2):
             return "That Was Amazing!";
-          case !(game.mistakes === 0 && secondsPerQuestion >= 2.0):
-            return "You Need To Go Faster";
-          case !(game.mistakes <= 1 && secondsPerQuestion <= 1.5):
-            return "Great Job";
-          case !(game.mistakes <= 2 && secondsPerQuestion <= 2.5):
-            return "You Did Well";
-          case !(game.mistakes <= 6 && secondsPerQuestion <= 1.2):
-            return "You Need To Slow Down";
+          case !(game.mistakes === 0 && secondsPerQuestion >= 2.2):
+            return "You should go faster.";
+          case !(game.mistakes <= 1 && secondsPerQuestion <= 1.7):
+            return "Great job!";
+          case !(game.mistakes <= 2 && secondsPerQuestion <= 3.0):
+            return "You did pretty well.";
+          case !(game.mistakes <= 6 && secondsPerQuestion <= 1.3):
+            return "You should slow down.";
           case !(game.mistakes >= $rootScope.length):
             return "You're not even trying!";
           default:
