@@ -559,17 +559,6 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 1
 		},
-	"\/public\/lib\/angular-animate.min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/public\/lib\/angular-animate.min.js",
-		"outputAbbreviatedPath": "\/public\/lib\/min\/angular-animate.min-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 1
-		},
 	"\/public\/lib\/angular-route.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -581,34 +570,12 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 1
 		},
-	"\/public\/lib\/angular-route.min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/public\/lib\/angular-route.min.js",
-		"outputAbbreviatedPath": "\/public\/lib\/min\/angular-route.min-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 1
-		},
 	"\/public\/lib\/angular.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/public\/lib\/angular.js",
 		"outputAbbreviatedPath": "\/public\/lib\/min\/angular-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 1
-		},
-	"\/public\/lib\/angular.min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/public\/lib\/angular.min.js",
-		"outputAbbreviatedPath": "\/public\/lib\/min\/angular.min-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -641,12 +608,12 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/src\/app.coffee": {
+	"\/source\/app.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/app.coffee",
+		"inputAbbreviatedPath": "\/source\/app.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/app.js",
 		"outputPathIsOutsideProject": 0,
@@ -654,14 +621,14 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/app.scss": {
+	"\/source\/app.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 1,
 		"fileType": 4,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/app.scss",
+		"inputAbbreviatedPath": "\/source\/app.scss",
 		"outputAbbreviatedPath": "\/public\/app.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
@@ -670,12 +637,12 @@
 		"shouldRunBless": 0,
 		"useLibsass": 1
 		},
-	"\/src\/core\/config.coffee": {
+	"\/source\/core\/config.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/core\/config.coffee",
+		"inputAbbreviatedPath": "\/source\/core\/config.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/config.js",
 		"outputPathIsOutsideProject": 0,
@@ -683,12 +650,12 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/core\/filters.coffee": {
+	"\/source\/core\/filters.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/core\/filters.coffee",
+		"inputAbbreviatedPath": "\/source\/core\/filters.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/filters.js",
 		"outputPathIsOutsideProject": 0,
@@ -696,12 +663,12 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/core\/run.coffee": {
+	"\/source\/core\/run.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/core\/run.coffee",
+		"inputAbbreviatedPath": "\/source\/core\/run.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/run.js",
 		"outputPathIsOutsideProject": 0,
@@ -709,12 +676,12 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/lib\/cdAnimate.coffee": {
+	"\/source\/lib\/cdAnimate.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/lib\/cdAnimate.coffee",
+		"inputAbbreviatedPath": "\/source\/lib\/cdAnimate.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/cdAnimate.js",
 		"outputPathIsOutsideProject": 0,
@@ -722,12 +689,12 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/lib\/cdBimg.coffee": {
+	"\/source\/lib\/cdBimg.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/lib\/cdBimg.coffee",
+		"inputAbbreviatedPath": "\/source\/lib\/cdBimg.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/cdBimg.js",
 		"outputPathIsOutsideProject": 0,
@@ -735,12 +702,12 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/lib\/cdClock.coffee": {
+	"\/source\/lib\/cdClock.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/lib\/cdClock.coffee",
+		"inputAbbreviatedPath": "\/source\/lib\/cdClock.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/cdClock.js",
 		"outputPathIsOutsideProject": 0,
@@ -748,12 +715,12 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/lib\/cdPickRandom.coffee": {
+	"\/source\/lib\/cdPickRandom.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/lib\/cdPickRandom.coffee",
+		"inputAbbreviatedPath": "\/source\/lib\/cdPickRandom.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/cdPickRandom.js",
 		"outputPathIsOutsideProject": 0,
@@ -761,12 +728,12 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/lib\/cdShuffle.coffee": {
+	"\/source\/lib\/cdShuffle.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/lib\/cdShuffle.coffee",
+		"inputAbbreviatedPath": "\/source\/lib\/cdShuffle.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/cdShuffle.js",
 		"outputPathIsOutsideProject": 0,
@@ -774,12 +741,12 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/lib\/cdTimeout.coffee": {
+	"\/source\/lib\/cdTimeout.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/lib\/cdTimeout.coffee",
+		"inputAbbreviatedPath": "\/source\/lib\/cdTimeout.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/cdTimeout.js",
 		"outputPathIsOutsideProject": 0,
@@ -787,12 +754,12 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/pages\/begin.coffee": {
+	"\/source\/pages\/begin.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/pages\/begin.coffee",
+		"inputAbbreviatedPath": "\/source\/pages\/begin.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/begin.js",
 		"outputPathIsOutsideProject": 0,
@@ -800,14 +767,14 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/pages\/begin.scss": {
+	"\/source\/pages\/begin.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 1,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/pages\/begin.scss",
+		"inputAbbreviatedPath": "\/source\/pages\/begin.scss",
 		"outputAbbreviatedPath": "\/public\/begin.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
@@ -816,12 +783,12 @@
 		"shouldRunBless": 0,
 		"useLibsass": 1
 		},
-	"\/src\/pages\/game.coffee": {
+	"\/source\/pages\/game.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/pages\/game.coffee",
+		"inputAbbreviatedPath": "\/source\/pages\/game.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/game.js",
 		"outputPathIsOutsideProject": 0,
@@ -829,14 +796,14 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/pages\/game.scss": {
+	"\/source\/pages\/game.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 1,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/pages\/game.scss",
+		"inputAbbreviatedPath": "\/source\/pages\/game.scss",
 		"outputAbbreviatedPath": "\/public\/game.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
@@ -845,12 +812,12 @@
 		"shouldRunBless": 0,
 		"useLibsass": 1
 		},
-	"\/src\/pages\/results.coffee": {
+	"\/source\/pages\/results.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/pages\/results.coffee",
+		"inputAbbreviatedPath": "\/source\/pages\/results.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/results.js",
 		"outputPathIsOutsideProject": 0,
@@ -858,14 +825,14 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/pages\/results.scss": {
+	"\/source\/pages\/results.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 1,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/pages\/results.scss",
+		"inputAbbreviatedPath": "\/source\/pages\/results.scss",
 		"outputAbbreviatedPath": "\/public\/results.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
@@ -874,14 +841,14 @@
 		"shouldRunBless": 0,
 		"useLibsass": 1
 		},
-	"\/src\/scss\/animations.scss": {
+	"\/source\/scss\/animations.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 1,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/scss\/animations.scss",
+		"inputAbbreviatedPath": "\/source\/scss\/animations.scss",
 		"outputAbbreviatedPath": "\/public\/animations.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
@@ -890,14 +857,14 @@
 		"shouldRunBless": 0,
 		"useLibsass": 1
 		},
-	"\/src\/scss\/base.scss": {
+	"\/source\/scss\/base.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 1,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/scss\/base.scss",
+		"inputAbbreviatedPath": "\/source\/scss\/base.scss",
 		"outputAbbreviatedPath": "\/public\/base.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
@@ -906,14 +873,14 @@
 		"shouldRunBless": 0,
 		"useLibsass": 1
 		},
-	"\/src\/scss\/reset.scss": {
+	"\/source\/scss\/reset.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 1,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/scss\/reset.scss",
+		"inputAbbreviatedPath": "\/source\/scss\/reset.scss",
 		"outputAbbreviatedPath": "\/public\/reset.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
@@ -927,76 +894,76 @@
 	],
 "lastSavedByUser": "Administrator",
 "manualImportLinks": {
-	"\/src\/app.coffee": [
+	"\/source\/app.coffee": [
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/core\/config.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/core\/config.coffee",
 			"position": 0,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/core\/filters.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/core\/filters.coffee",
 			"position": 1,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/core\/run.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/core\/run.coffee",
 			"position": 2,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/pages\/begin.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/pages\/begin.coffee",
 			"position": 3,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/pages\/game.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/pages\/game.coffee",
 			"position": 4,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/pages\/results.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/pages\/results.coffee",
 			"position": 5,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/lib\/cdAnimate.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/lib\/cdAnimate.coffee",
 			"position": 6,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/lib\/cdBimg.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/lib\/cdBimg.coffee",
 			"position": 7,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/lib\/cdClock.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/lib\/cdClock.coffee",
 			"position": 8,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/lib\/cdPickRandom.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/lib\/cdPickRandom.coffee",
 			"position": 9,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/lib\/cdShuffle.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/lib\/cdShuffle.coffee",
 			"position": 10,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/lib\/cdTimeout.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/lib\/cdTimeout.coffee",
 			"position": 11,
 			"type": 1
 			}
