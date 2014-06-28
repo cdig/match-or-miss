@@ -2,7 +2,7 @@
 	<div class="feedback">
 		<h1 class="quip">{{quip}}</h1>
 		<h2 class="stats">
-			{{length}} matches in
+			{{gameDuration}} matches in
 			{{game.time|time}} seconds with 
 			<ng-pluralize count="game.mistakes" when="{
 				'0':'no mistakes',
@@ -26,7 +26,7 @@
 		<div ng-show="badResults.length > 0">
 			<h1>Let's Review</h1>
 			<div class="current" ng-repeat="choice in badResults | limitTo:1">
-				<div class="image"><span cd-bimg="content/{{choice.image}}"></span></div>
+				<div class="image"><span cd-bimg="{{contentPath}}/{{choice.image}}"></span></div>
 				<h2 class="name">{{choice.name}}</h2>
 			</div>
 			<h3><a class="button" ng-click="badResults.shift()">Next</a></h3>

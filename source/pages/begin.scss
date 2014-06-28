@@ -64,16 +64,24 @@
 			}
 			
 			.choice {
+				position: relative;
 				display: inline-block;
-				width: 7.5em;
-				height: 9em;
-				margin: 0;
 				
-				span {
+				a {
+					position: absolute; // Prevent flickering from double entries
 					display: inline-block;
-					width: 100%;
-					height: 100%;
-					cursor: default; // Don't show pointer cursor here
+					top: 0;
+					right: 0;
+					width: 7.5em;
+					height: 9em;
+					margin: 0;
+				
+					span {
+						display: inline-block;
+						width: 100%;
+						height: 100%;
+						cursor: default; // Don't show pointer cursor here
+					}
 				}
 			}
 		}
@@ -91,11 +99,19 @@
 			}
 			
 			.name {
-				line-height: 7.5em;
+				position: relative;
+				display: inline-block;
 				
-				h2 {
-					white-space: nowrap;
-					font-size: 2em;
+				div {
+					position: absolute; // Prevent flickering from double entries
+					top: 0;
+					left: 0;
+					line-height: 7.5em;
+				
+					h2 {
+						white-space: nowrap;
+						font-size: 2em;
+					}
 				}
 			}
 		}

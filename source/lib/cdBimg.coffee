@@ -3,8 +3,8 @@ angular.module 'cdBimg', []
 .directive "cdBimg", ()->
 	(scope, elm, attrs)->
 		attrs.$observe "cdBimg", ()->
-			elm.css
-				"background-image": "url(#{attrs.cdBimg})"
+			if attrs.cdBimg? and attrs.cdBimg.length > 0
+				elm.css({"background-image": "url(#{attrs.cdBimg})"})
 
 ### SUGGESTED CSS
 [cd-bimg] {

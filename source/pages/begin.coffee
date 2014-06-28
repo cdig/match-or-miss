@@ -7,11 +7,12 @@ angular.module 'begin', []
 	# Wait for the content to finish loading
 	$rootScope.contentPromise.then ()->		
 		
-		choices = $rootScope.content.choices[0..10]
-	
-		randomize = ()->
-			old = $scope.tile
-			while $scope.tile == old
-				$scope.tile = choices[Math.random()*choices.length|0]
-			$timeout(randomize, 200)
-		randomize();
+		$scope.randomChoices = $rootScope.content.choices[0..5]
+		
+		do randomize = ()->
+			oldChoice = $scope.currentChoice
+			
+			while oldChoice == $scope.currentChoice
+				$scope.currentChoice = Math.floor(Math.random() * $scope.randomChoices.length)
+			
+			$timeout(randomize, 333)

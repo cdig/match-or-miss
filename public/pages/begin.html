@@ -3,11 +3,19 @@
 <div class="explanation">
 	<div class="choices">
 		<h1>Pick the symbol</h1>
-		<a class="choice"><span cd-bimg="content/{{tile.image}}"></span></a>
+		<div class="choice">
+			<a ng-repeat="choice in randomChoices" ng-show="currentChoice == $index">
+				<span cd-bimg="{{contentPath}}/{{choice.image}}"></span>
+			</a>
+		</div>
 	</div>
 	<div class="description">
 		<h1>with this name</h1>
-		<div class="name"><h2>{{tile.name}}</h2></div>
+		<div class="name">
+			<div ng-repeat="choice in randomChoices" ng-show="currentChoice == $index">
+				<h2>{{choice.name}}</h2>
+			</div>
+		</div>
 	</div>
 </div>
 

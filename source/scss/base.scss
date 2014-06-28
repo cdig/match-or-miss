@@ -1,11 +1,6 @@
 html {
-	background:
-		url('content/background.png'), // TODO: this needs to be dynamic!
-		url('assets/grid_lines.png'),
-		radial-gradient(ellipse at center, #2a69bf 8%, #07469a 64%, #12386b 100%);
-	background-position: center bottom 2%;
-	background-size: 80%, 100vmax, 100%;
-	background-repeat: no-repeat, repeat;
+	background: url('assets/grid_lines.png'), radial-gradient(ellipse at center, #2a69bf 8%, #07469a 64%, #12386b 100%);
+	background-size: 100vmax, 100%;
 	
 	overflow: hidden; // prevents scroll rubber-banding
 	font-family: "myriad pro", "helvetica neue", arial, sans-serif;
@@ -33,6 +28,18 @@ body {
 		-webkit-animation: fade-in 1s .5s both;
 		animation: fade-in 1s .5s both;
 	}
+}
+
+#background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	
+	background-position: center bottom 2%;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 [cd-bimg] {

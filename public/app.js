@@ -7,7 +7,7 @@
  */
 
 (function() {
-  angular.module('app', ['ngRoute', 'ngAnimate', 'config', 'filters', 'run', 'begin', 'game', 'results', 'cdAnimate', 'cdBimg', 'cdClock', 'cdPickRandom', 'cdShuffle', 'cdTimeout']);
+  angular.module('app', ['ngAnimate', 'ngRoute', 'ngTouch', 'config', 'filters', 'run', 'begin', 'game', 'results', 'cdAnimate', 'cdBimg', 'cdClock', 'cdPickRandom', 'cdShuffle', 'cdTimeout']);
 
 
   /*
@@ -55,21 +55,29 @@
    */
 
   angular.module('run', []).run(function($rootScope, $location, $http, $timeout) {
-    $rootScope.difficulty = 4;
-    $rootScope.length = 16;
+    var contentFile, _ref;
+    $rootScope.ticksPerSecond = 10;
     $rootScope.bestTime = Infinity;
     $rootScope.bestMistakes = Infinity;
-    $rootScope.ticksPerSecond = 10;
-    $rootScope.$on("$routeChangeSuccess", function(e, toRoute) {
+    $rootScope.contentPath = ((_ref = $location.search()) != null ? _ref.path : void 0) || 'test';
+    contentFile = $rootScope.contentPath + '/content.json';
+    $rootScope.contentPromise = $http.get(contentFile);
+    $rootScope.contentPromise.then(function(response) {
+      $rootScope.content = angular.fromJson(response.data);
+      $rootScope.displayedChoices = $rootScope.content.displayedChoices || 4;
+      return $rootScope.gameDuration = $rootScope.content.gameDuration || 16;
+    });
+    $rootScope.contentPromise["catch"](function(reason) {
+      $rootScope.error = "Loading game data failed: " + reason.statusText + " (" + reason.status + ")";
+      console.log("Loading path failed: " + $rootScope.contentPath);
+      return console.log(reason);
+    });
+    return $rootScope.$on("$routeChangeSuccess", function(e, toRoute) {
       return $timeout(function() {
         if (($location.path() != null) && ((toRoute != null ? toRoute.scope : void 0) != null)) {
           return toRoute.scope.route = $location.path().slice(1);
         }
       });
-    });
-    $rootScope.contentPromise = $http.get('content/content.json');
-    return $rootScope.contentPromise.then(function(response) {
-      return $rootScope.content = angular.fromJson(response.data);
     });
   });
 
@@ -82,17 +90,16 @@
 
   angular.module('begin', []).controller("BeginCtrl", function($rootScope, $scope, $timeout) {
     return $rootScope.contentPromise.then(function() {
-      var choices, randomize;
-      choices = $rootScope.content.choices.slice(0, 11);
-      randomize = function() {
-        var old;
-        old = $scope.tile;
-        while ($scope.tile === old) {
-          $scope.tile = choices[Math.random() * choices.length | 0];
+      var randomize;
+      $scope.randomChoices = $rootScope.content.choices.slice(0, 6);
+      return (randomize = function() {
+        var oldChoice;
+        oldChoice = $scope.currentChoice;
+        while (oldChoice === $scope.currentChoice) {
+          $scope.currentChoice = Math.floor(Math.random() * $scope.randomChoices.length);
         }
-        return $timeout(randomize, 200);
-      };
-      return randomize();
+        return $timeout(randomize, 333);
+      })();
     });
   });
 
@@ -107,7 +114,7 @@
     return $rootScope.contentPromise.then(function() {
       var choice, clockStarted, game, inputDisabled, startClock, _i, _len, _ref;
       game = $rootScope.game = {};
-      game.choices = cdShuffle($rootScope.content.choices).slice(0, $rootScope.length);
+      game.choices = cdShuffle($rootScope.content.choices).slice(0, $rootScope.gameDuration);
       _ref = game.choices;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         choice = _ref[_i];
@@ -135,7 +142,7 @@
       return cdTimeout(1000, function() {
         var pickNewAnswer;
         (pickNewAnswer = function() {
-          return $scope.currentAnswer = cdPickRandom(game.choices.slice(0, $rootScope.difficulty));
+          return $scope.currentAnswer = cdPickRandom(game.choices.slice(0, $rootScope.displayedChoices));
         })();
         return $scope.pick = function(choice, index) {
           startClock();
@@ -194,7 +201,7 @@
       if (!(game != null ? game.complete : void 0)) {
         return;
       }
-      secondsPerQuestion = (game.time / $rootScope.ticksPerSecond) / $rootScope.length;
+      secondsPerQuestion = (game.time / $rootScope.ticksPerSecond) / $rootScope.gameDuration;
       $scope.quip = (function() {
         switch (false) {
           case !(game.mistakes === 0 && secondsPerQuestion <= 1.2):
@@ -207,7 +214,7 @@
             return "You did pretty well.";
           case !(game.mistakes <= 6 && secondsPerQuestion <= 1.3):
             return "You should slow down.";
-          case !(game.mistakes >= $rootScope.length):
+          case !(game.mistakes >= $rootScope.gameDuration):
             return "You're not even trying!";
           default:
             return "Rough day, huh?";
@@ -253,9 +260,11 @@
   angular.module('cdBimg', []).directive("cdBimg", function() {
     return function(scope, elm, attrs) {
       return attrs.$observe("cdBimg", function() {
-        return elm.css({
-          "background-image": "url(" + attrs.cdBimg + ")"
-        });
+        if ((attrs.cdBimg != null) && attrs.cdBimg.length > 0) {
+          return elm.css({
+            "background-image": "url(" + attrs.cdBimg + ")"
+          });
+        }
       });
     };
   });

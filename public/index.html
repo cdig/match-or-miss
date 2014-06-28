@@ -6,21 +6,23 @@
 		<title>Match or Miss?</title>
 		<link href="app.css" rel="stylesheet">
 		<script src="lib/angular.js"></script>
-		<script src="lib/angular-route.js"></script>
 		<script src="lib/angular-animate.js"></script>
+		<script src="lib/angular-route.js"></script>
+		<script src="lib/angular-touch.js"></script>
 		<script src="app.js"></script>
 	</head>
 	<body>
 		<!--[if gte IE 10]><!-->
-			<div ng-view ng-class="route"></div>
+		<div id="background" ng-hide="error" cd-bimg="{{contentPath}}/{{content.backgroundImage}}"></div>
+		<h1 class="error" ng-show="error">{{error}}</h1>
+		<div ng-view ng-class="route" ng-hide="error"></div>
 		<!--<![endif]-->
 		<!--[if lt IE 10]>
-			
-			<div style="margin-top:-8em;position:absolute;top:50%;width:100%;">
-				<h1>Your web browser is too old to play this game.</h1>
-				<h3>Please upgrade to Google Chrome, Mozilla Firefox, or Internet Explorer 11.</h3>
-				<h2><a style="color: blue;" href="http://www.carldyke.com/browsers">More Info</a></h2>
-			</div>
+		<div style="margin-top:-8em;position:absolute;top:50%;width:100%;">
+			<h1>Your web browser is too old to play this game.</h1>
+			<h3>Please upgrade to Google Chrome, Mozilla Firefox, or Internet Explorer 11.</h3>
+			<h2><a style="color: blue;" href="http://www.carldyke.com/browsers">More Info</a></h2>
+		</div>
 		<![endif]-->
 	</body>
 </html>

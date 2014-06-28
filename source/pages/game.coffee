@@ -9,7 +9,7 @@ angular.module 'game', []
 		game = $rootScope.game = {}
 	
 		# Generate a shuffled COPY of the choices from the content JSON
-		game.choices = cdShuffle($rootScope.content.choices)[0...$rootScope.length]
+		game.choices = cdShuffle($rootScope.content.choices)[0...$rootScope.gameDuration]
 	
 		# Prepare each choice with fields used to track player performance
 		for choice in game.choices
@@ -51,7 +51,7 @@ angular.module 'game', []
 		
 			# Get our first answer, and save this function for getting new answers as needed later
 			do pickNewAnswer = ()->
-				$scope.currentAnswer = cdPickRandom(game.choices[0...$rootScope.difficulty])
+				$scope.currentAnswer = cdPickRandom(game.choices[0...$rootScope.displayedChoices])
 		
 			# When someone picks an answer, here's what we do
 			$scope.pick = (choice, index)->
