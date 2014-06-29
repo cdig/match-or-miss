@@ -1,7 +1,7 @@
 {
 	"title":"Schematic Symbols",
 	"backgroundImage":"background.png",
-	"displayedChoices":6,
+	"displayedChoices":4,
 	"gameDuration":10,
 	"choices":[
 		{"image":"symbols/working_pressure_line.png",

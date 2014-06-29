@@ -1,7 +1,8 @@
-@import "scss/reset";
-@import "scss/animations";
-@import "scss/base";
-@import "scss/error";
+@import "common/reset";
+@import "common/animations";
+@import "common/responsive";
+@import "base/app";
+@import "base/error";
 
 @import "pages/begin";
 @import "pages/game";

@@ -34,43 +34,49 @@ angular.module 'game', []
 		$scope.flipMode.flipIn = false
 		$scope.flipMode.flipOut = false
 	
-		# If the user clicks restart, just reload this page
-		$scope.restart = $route.reload
+		# If the user clicks restart, redirect back to the start screen
+		$scope.restart = ()->
+			$location.path("/begin")
 	
-		# This starts the in-game clock, using the cdTimeout and cdClock helper services
+		# This function is used to start the in-game clock, using the cdTimeout and cdClock helper services
 		clockStarted = false
 		startClock = ()->
 			unless clockStarted
 				clockStarted = true
 				cdClock $scope, 1000/$rootScope.ticksPerSecond, ()-> # Run the following function every tick (based on $rootScope.ticksPerSecond)
 					game.time += 1 # Increment the clock by one tick
-
-	
+		
+		# This function is used to generate and return a new answer
+		pickNewAnswer = ()->
+			cdPickRandom(game.choices[0...$rootScope.displayedChoices])
+		
 		# Delay while the cross-fade and opening animations run
 		cdTimeout 1000, ()->
 		
 			# Get our first answer, and save this function for getting new answers as needed later
-			do pickNewAnswer = ()->
-				$scope.currentAnswer = cdPickRandom(game.choices[0...$rootScope.displayedChoices])
-		
+			$scope.currentAnswer = pickNewAnswer()
+			
 			# When someone picks an answer, here's what we do
 			$scope.pick = (choice, index)->
-			
+				
 				# Start the clock when the user first answers
 				startClock()
-			
+				
 				# Do nothing if they've recently picked an answer and we're running animations, or if we're done the game
 				unless inputDisabled or game.complete
-				
+					
 					# Disable input while we run animations
 					inputDisabled = true
-				
+					
+					# Record whether they picked the correct answer
+					pickedCorrectAnswer = choice is $scope.currentAnswer
+					
 					# If they picked the right answer
-					if choice is $scope.currentAnswer
+					if pickedCorrectAnswer 
 					
 						# Remove the right answer from the list
 						game.choices.splice(index, 1)
-					
+						
 						# Save this answer in our results array for the end of the game feedback screen
 						game.results.push(choice)
 					
@@ -79,54 +85,61 @@ angular.module 'game', []
 					
 					# If they picked the wrong answer
 					else
-					
+						
 						# Keep track of how much they screwed up
 						game.mistakes++
-					
+						
 						# Record that they mistakenly chose the wrong tile for this name
 						$scope.currentAnswer.wrongTiles.push(choice)
 						$scope.currentAnswer.mistakes++
-					
+						
 						# Record that they mistakenly chose the wrong name for this tile
 						choice.wrongNames.push($scope.currentAnswer)
 						choice.mistakes++
-					
+						
 						# Set some styles, which triggers animations
 						$scope.correctness = choice.correctness = "wrong"
-				
+					
 					# Start flipping the question prompt
 					$scope.flipMode.flipOut = true
-				
+					
 					# Wait while the question prompt flips and the choices transition
-					cdTimeout 260, ()->
-
+					$scope.flipComplete = ()->
+						
 						# We're done showing specific colours based on how they answered last time
 						delete choice.correctness
 						delete $scope.correctness
-					
+						
 						# If we're out of choices, then we're done the whole game!
 						if game.choices.length is 0
 							game.complete = true
 							$location.path("/results")
-					
+						
 						# Well, I guess we're not done the game yet. Let's pick a new answer and run more animations.
 						else
-						
+							
 							# Let's let the user do some more picking!
 							inputDisabled = false
-						
-							# Store our last answer, so we don't ask for it twice in a row
-							lastAnswer = $scope.currentAnswer
-						
-							# Keep trying to pick a new answer until... you know what, just read the nice CoffeeScript
-							pickNewAnswer() until $scope.currentAnswer isnt lastAnswer
-						
+							
+							# If the user picked the correct answer, then we'll give them a new one
+							if pickedCorrectAnswer
+								
+								# Store our last answer, so we don't ask for it twice in a row
+								lastAnswer = $scope.currentAnswer
+							
+								# Keep trying to pick a new answer until... you know what, just read the nice CoffeeScript
+								while $scope.currentAnswer is lastAnswer
+									$scope.currentAnswer = pickNewAnswer()
+							
 							# It's been 500ms, so we're halfway done the animations.. switch them over!
 							$scope.flipMode.flipOut = false
 							$scope.flipMode.flipIn = true
-						
-							# We've got a new answer and we're flipping back in, so wait another 500ms
-							cdTimeout 260, ()->
 							
+							# We've got a new answer and we're flipping back in, so wait another 500ms
+							$scope.flipComplete = ()->
+								
 								# We're done our animation
 								$scope.flipMode.flipIn = false
+								
+								# Stop handling animation
+								$scope.filpComplete = null

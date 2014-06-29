@@ -16,6 +16,7 @@ angular.module 'app', [
 	
 	# These modules define the core of our app
 	'config' # This module configures the routeProvider (from the ngRoute module)
+	'directives' # This module contains special extensions to HTML
 	'filters' # This module provides some helpful filters
 	'run' # This module handles loading and parsing data for our app
 	
@@ -25,7 +26,6 @@ angular.module 'app', [
 	'results'
 	
 	# These modules are just some helper utilities
-	'cdAnimate'
 	'cdBimg'
 	'cdClock'
 	'cdPickRandom'

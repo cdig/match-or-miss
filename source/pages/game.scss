@@ -1,20 +1,12 @@
 .game {
-	display: -webkit-flex;
-	-webkit-flex-direction: column;
-	-webkit-justify-content: center;
-	
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	
 	.hud {
-		position: absolute;
-		top: .4em;
-		width: 100%;
-		
+		flex: 1 0 auto;
 		font-size: 2em;
-		
-		-webkit-animation: fade-in 5s 5s both;
+		margin: 1em 0 0;
 		animation: fade-in 5s 5s both;
 		
 		span, a {
@@ -22,7 +14,7 @@
 			border-radius: 1em;
 			padding: .2em .5em .1em;
 		}
-		
+				
 		span {
 			margin: 0 2%;
 			color: white;
@@ -34,20 +26,26 @@
 		}
 	}
 	
+	.main {
+		flex: 1 0 auto;
+	}
+	
+	.spacer {
+		flex: 1 1 auto;
+	}
+	
 	.prompt {
-		margin-top: 1em;
 		font-size: 1.2em;
 		
 		.pickTheSymbol {
-			-webkit-animation: roll-in 1s .5s linear both;
+			font-size: 2em;
 			animation: roll-in 1s .5s linear both;
 		}
-	
+		
 		.question {
-			-webkit-perspective: 1000px;
-			-webkit-animation: roll-in 1s 1.5s linear both;
 			perspective: 1000px;
 			animation: roll-in 1s 1.5s linear both;
+			min-height: 3em; // Prevent popping
 			
 			.flipper {
 				h1 {
@@ -56,14 +54,12 @@
 					background: black;
 					color: white;
 				}
-			
+				
 				&.flipOut {
-					-webkit-animation: roll-out .25s ease-in both;
 					animation: roll-out .25s ease-in both;
 				}
 			
 				&.flipIn {
-					-webkit-animation: roll-in .25s ease-out both;
 					animation: roll-in .25s ease-out both;
 				}
 			}
@@ -71,24 +67,21 @@
 	}
 
 	.choices {
-		-webkit-animation: roll-in .5s 2.5s linear both;
 		animation: roll-in .5s 2.5s linear both;
 		
 		.choice {
 			margin: 1em;
-
-
+			
+			
 			& > span {
 				transition: .5s ease all;
 			}
-	
+			
 			&.ng-leave {
-				-webkit-animation: tile-exit .5s ease-out both;
 				animation: tile-exit .5s ease-out both;
 			}
 		
 			&.ng-enter {
-				-webkit-animation: tile-exit .5s reverse ease-out both;
 				animation: tile-exit .5s reverse ease-out both;
 			}
 		}

@@ -12,7 +12,7 @@ angular.module 'run', []
 	
 	# Step 2: we load our game data.
 	# Load from a remote location specified by a URL variable (if it exists) or fallback to local test data.
-	$rootScope.contentPath = ($location.search()?.path or 'test')
+	$rootScope.contentPath = ($location.search()?.path or 'content')
 	contentFile = $rootScope.contentPath + '/content.json'
 	
 	# Now, start the load!

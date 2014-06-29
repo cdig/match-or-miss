@@ -4,19 +4,25 @@
 	<span>{{game.choices.length}} left</span>
 </div>
 
-<div class="prompt">
-	<h2 class="pickTheSymbol">Pick the symbol named</h2>
-	<div class="question">
-		<div class="flipper" ng-class="flipMode">
-			<h1 ng-class="correctness">{{currentAnswer.name}}</h1>
+<div class="main">
+	<div class="prompt">
+		<h2 class="pickTheSymbol">Pick the symbol named</h2>
+	
+		<div class="question">
+			<div flip-complete="flipComplete()" class="flipper" ng-class="flipMode">
+				<h1 ng-class="correctness">{{currentAnswer.name}}</h1>
+			</div>
 		</div>
+	
+	</div>
+
+	<div class="choices">
+		<a class="choice" ng-repeat="choice in game.choices | limitTo:displayedChoices" ng-click="pick(choice, $index)">
+			<span ng-class="choice.correctness">
+				<span cd-bimg="{{contentPath}}/{{choice.image}}"></span>
+			</span>
+		</a>
 	</div>
 </div>
 
-<div class="choices">
-	<a class="choice" ng-repeat="choice in game.choices | limitTo:displayedChoices" ng-click="pick(choice, $index)">
-		<span ng-class="choice.correctness">
-			<span cd-bimg="{{contentPath}}/{{choice.image}}"></span>
-		</span>
-	</a>
-</div>
+<div class="spacer"></div>

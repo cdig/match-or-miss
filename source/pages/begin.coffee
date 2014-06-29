@@ -2,7 +2,7 @@ angular.module 'begin', []
 
 # This is a controller
 # It connects a portion of the HTML with specific JavaScript code that adds behaviour to it
-.controller "BeginCtrl", ($rootScope, $scope, $timeout)->
+.controller "BeginCtrl", ($rootScope, $scope, $timeout, $location)->
 	
 	# Wait for the content to finish loading
 	$rootScope.contentPromise.then ()->		
@@ -16,3 +16,6 @@ angular.module 'begin', []
 				$scope.currentChoice = Math.floor(Math.random() * $scope.randomChoices.length)
 			
 			$timeout(randomize, 333)
+		
+		$scope.start = ()->
+			$location.path("/game")

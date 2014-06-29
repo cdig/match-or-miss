@@ -7,7 +7,7 @@
  */
 
 (function() {
-  angular.module('app', ['ngAnimate', 'ngRoute', 'ngTouch', 'config', 'filters', 'run', 'begin', 'game', 'results', 'cdAnimate', 'cdBimg', 'cdClock', 'cdPickRandom', 'cdShuffle', 'cdTimeout']);
+  angular.module('app', ['ngAnimate', 'ngRoute', 'ngTouch', 'config', 'directives', 'filters', 'run', 'begin', 'game', 'results', 'cdBimg', 'cdClock', 'cdPickRandom', 'cdShuffle', 'cdTimeout']);
 
 
   /*
@@ -29,6 +29,26 @@
     }).otherwise({
       redirectTo: "/begin"
     });
+  });
+
+
+  /*
+  --------------------------------------------
+       Begin directives.coffee
+  --------------------------------------------
+   */
+
+  angular.module("directives", []).directive("flipComplete", function() {
+    return {
+      scope: {
+        callback: "&flipComplete"
+      },
+      link: function(scope, elm, attrs) {
+        return elm.on('webkitAnimationEnd msAnimationEnd animationend', function() {
+          return scope.callback();
+        });
+      }
+    };
   });
 
 
@@ -59,7 +79,7 @@
     $rootScope.ticksPerSecond = 10;
     $rootScope.bestTime = Infinity;
     $rootScope.bestMistakes = Infinity;
-    $rootScope.contentPath = ((_ref = $location.search()) != null ? _ref.path : void 0) || 'test';
+    $rootScope.contentPath = ((_ref = $location.search()) != null ? _ref.path : void 0) || 'content';
     contentFile = $rootScope.contentPath + '/content.json';
     $rootScope.contentPromise = $http.get(contentFile);
     $rootScope.contentPromise.then(function(response) {
@@ -88,11 +108,11 @@
   --------------------------------------------
    */
 
-  angular.module('begin', []).controller("BeginCtrl", function($rootScope, $scope, $timeout) {
+  angular.module('begin', []).controller("BeginCtrl", function($rootScope, $scope, $timeout, $location) {
     return $rootScope.contentPromise.then(function() {
       var randomize;
       $scope.randomChoices = $rootScope.content.choices.slice(0, 6);
-      return (randomize = function() {
+      (randomize = function() {
         var oldChoice;
         oldChoice = $scope.currentChoice;
         while (oldChoice === $scope.currentChoice) {
@@ -100,6 +120,9 @@
         }
         return $timeout(randomize, 333);
       })();
+      return $scope.start = function() {
+        return $location.path("/game");
+      };
     });
   });
 
@@ -112,7 +135,7 @@
 
   angular.module('game', []).controller("GameCtrl", function($rootScope, $scope, $location, $route, cdShuffle, cdClock, cdPickRandom, cdTimeout) {
     return $rootScope.contentPromise.then(function() {
-      var choice, clockStarted, game, inputDisabled, startClock, _i, _len, _ref;
+      var choice, clockStarted, game, inputDisabled, pickNewAnswer, startClock, _i, _len, _ref;
       game = $rootScope.game = {};
       game.choices = cdShuffle($rootScope.content.choices).slice(0, $rootScope.gameDuration);
       _ref = game.choices;
@@ -129,7 +152,9 @@
       $scope.flipMode = {};
       $scope.flipMode.flipIn = false;
       $scope.flipMode.flipOut = false;
-      $scope.restart = $route.reload;
+      $scope.restart = function() {
+        return $location.path("/begin");
+      };
       clockStarted = false;
       startClock = function() {
         if (!clockStarted) {
@@ -139,16 +164,18 @@
           });
         }
       };
+      pickNewAnswer = function() {
+        return cdPickRandom(game.choices.slice(0, $rootScope.displayedChoices));
+      };
       return cdTimeout(1000, function() {
-        var pickNewAnswer;
-        (pickNewAnswer = function() {
-          return $scope.currentAnswer = cdPickRandom(game.choices.slice(0, $rootScope.displayedChoices));
-        })();
+        $scope.currentAnswer = pickNewAnswer();
         return $scope.pick = function(choice, index) {
+          var pickedCorrectAnswer;
           startClock();
           if (!(inputDisabled || game.complete)) {
             inputDisabled = true;
-            if (choice === $scope.currentAnswer) {
+            pickedCorrectAnswer = choice === $scope.currentAnswer;
+            if (pickedCorrectAnswer) {
               game.choices.splice(index, 1);
               game.results.push(choice);
               $scope.correctness = choice.correctness = "correct";
@@ -161,7 +188,7 @@
               $scope.correctness = choice.correctness = "wrong";
             }
             $scope.flipMode.flipOut = true;
-            return cdTimeout(260, function() {
+            return $scope.flipComplete = function() {
               var lastAnswer;
               delete choice.correctness;
               delete $scope.correctness;
@@ -170,17 +197,20 @@
                 return $location.path("/results");
               } else {
                 inputDisabled = false;
-                lastAnswer = $scope.currentAnswer;
-                while ($scope.currentAnswer === lastAnswer) {
-                  pickNewAnswer();
+                if (pickedCorrectAnswer) {
+                  lastAnswer = $scope.currentAnswer;
+                  while ($scope.currentAnswer === lastAnswer) {
+                    $scope.currentAnswer = pickNewAnswer();
+                  }
                 }
                 $scope.flipMode.flipOut = false;
                 $scope.flipMode.flipIn = true;
-                return cdTimeout(260, function() {
-                  return $scope.flipMode.flipIn = false;
-                });
+                return $scope.flipComplete = function() {
+                  $scope.flipMode.flipIn = false;
+                  return $scope.filpComplete = null;
+                };
               }
-            });
+            };
           }
         };
       });
@@ -240,15 +270,6 @@
       });
     });
   });
-
-
-  /*
-  --------------------------------------------
-       Begin cdAnimate.coffee
-  --------------------------------------------
-   */
-
-  angular.module('cdAnimate', []);
 
 
   /*
