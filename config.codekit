@@ -11,17 +11,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/public\/app.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/public\/app.js",
-		"outputAbbreviatedPath": "\/public\/min\/app-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 1
-		},
 	"\/public\/assets\/grid_lines.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -539,17 +528,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/public\/directives.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/public\/directives.js",
-		"outputAbbreviatedPath": "\/public\/min\/directives-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 1
-		},
 	"\/public\/index.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -767,22 +745,6 @@
 		"shouldRunBless": 0,
 		"useLibsass": 1
 		},
-	"\/source\/common\/responsive.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 1,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/source\/common\/responsive.scss",
-		"outputAbbreviatedPath": "\/public\/responsive.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 3,
-		"shouldRunAutoprefixer": 1,
-		"shouldRunBless": 0,
-		"useLibsass": 1
-		},
 	"\/source\/core\/config.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
@@ -856,19 +818,6 @@
 		"inputAbbreviatedPath": "\/source\/lib\/cdClock.coffee",
 		"minifyOutput": 0,
 		"outputAbbreviatedPath": "\/public\/cdClock.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 0
-		},
-	"\/source\/lib\/cdPickRandom.coffee": {
-		"createSourceMap": 0,
-		"fileType": 32,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/source\/lib\/cdPickRandom.coffee",
-		"minifyOutput": 0,
-		"outputAbbreviatedPath": "\/public\/cdPickRandom.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -1049,20 +998,14 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/source\/lib\/cdPickRandom.coffee",
+			"linkedFileAbbreviatedPath": "\/source\/lib\/cdShuffle.coffee",
 			"position": 9,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/source\/lib\/cdShuffle.coffee",
-			"position": 10,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/source\/lib\/cdTimeout.coffee",
-			"position": 11,
+			"position": 10,
 			"type": 1
 			}
 		]

@@ -28,7 +28,6 @@ angular.module 'app', [
 	# These modules are just some helper utilities
 	'cdBimg'
 	'cdClock'
-	'cdPickRandom'
 	'cdShuffle'
 	'cdTimeout'
 ]

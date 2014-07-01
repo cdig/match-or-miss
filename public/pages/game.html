@@ -1,7 +1,7 @@
 <div class="hud">
-	<span>{{game.time|time:0}} seconds</span>
+	<span>{{gameStatus.time|time:0}} seconds</span>
 	<a class="restart button" ng-click="restart()">Restart</a>
-	<span>{{game.choices.length}} left</span>
+	<span>{{hand.length + deck.length}} left</span>
 </div>
 
 <div class="main">
@@ -9,17 +9,16 @@
 		<h2 class="pickTheSymbol">Pick the symbol named</h2>
 	
 		<div class="question">
-			<div flip-complete="flipComplete()" class="flipper" ng-class="flipMode">
-				<h1 ng-class="correctness">{{currentAnswer.name}}</h1>
+			<div class="flipper" ng-class="flipMode" animation-end="nextAnimation">
+				<h1 ng-class="correctness">{{answerCard.name}}</h1>
 			</div>
 		</div>
-	
 	</div>
-
-	<div class="choices">
-		<a class="choice" ng-repeat="choice in game.choices | limitTo:displayedChoices" ng-click="pick(choice, $index)">
-			<span ng-class="choice.correctness">
-				<span cd-bimg="{{contentPath}}/{{choice.image}}"></span>
+	
+	<div class="choices" deck>
+		<a class="choice" ng-repeat="card in hand" card>
+			<span ng-class="card.correctness">
+				<span cd-bimg="{{contentPath}}/{{card.image}}"></span>
 			</span>
 		</a>
 	</div>

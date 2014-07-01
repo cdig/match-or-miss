@@ -7,7 +7,7 @@
  */
 
 (function() {
-  angular.module('app', ['ngAnimate', 'ngRoute', 'ngTouch', 'config', 'directives', 'filters', 'run', 'begin', 'game', 'results', 'cdBimg', 'cdClock', 'cdPickRandom', 'cdShuffle', 'cdTimeout']);
+  angular.module('app', ['ngAnimate', 'ngRoute', 'ngTouch', 'config', 'directives', 'filters', 'run', 'begin', 'game', 'results', 'cdBimg', 'cdClock', 'cdShuffle', 'cdTimeout']);
 
 
   /*
@@ -38,14 +38,32 @@
   --------------------------------------------
    */
 
-  angular.module("directives", []).directive("flipComplete", function() {
+  angular.module("directives", []).directive("animationEnd", function() {
     return {
-      scope: {
-        callback: "&flipComplete"
-      },
       link: function(scope, elm, attrs) {
         return elm.on('webkitAnimationEnd msAnimationEnd animationend', function() {
-          return scope.callback();
+          return scope[attrs.animationEnd]();
+        });
+      }
+    };
+  }).directive("deck", function() {
+    return {
+      link: function(scope, elm, attrs) {
+        return elm.css({
+          maxWidth: (scope.handSize * 9.5) + "em"
+        });
+      }
+    };
+  }).directive("card", function() {
+    return {
+      link: function(scope, elm, attrs) {
+        var size;
+        size = 100 / scope.handSize;
+        elm.css({
+          left: (scope.$index * size + size / 2) + "%"
+        });
+        return elm.on("click", function() {
+          return scope.pick(scope.card, scope.$index);
         });
       }
     };
@@ -84,7 +102,7 @@
     $rootScope.contentPromise = $http.get(contentFile);
     $rootScope.contentPromise.then(function(response) {
       $rootScope.content = angular.fromJson(response.data);
-      $rootScope.displayedChoices = $rootScope.content.displayedChoices || 4;
+      $rootScope.handSize = $rootScope.content.handSize || 4;
       return $rootScope.gameDuration = $rootScope.content.gameDuration || 16;
     });
     $rootScope.contentPromise["catch"](function(reason) {
@@ -133,86 +151,105 @@
   --------------------------------------------
    */
 
-  angular.module('game', []).controller("GameCtrl", function($rootScope, $scope, $location, $route, cdShuffle, cdClock, cdPickRandom, cdTimeout) {
+  angular.module('game', []).controller("GameCtrl", function($rootScope, $scope, $location, $route, cdShuffle, cdClock, cdTimeout) {
     return $rootScope.contentPromise.then(function() {
-      var choice, clockStarted, game, inputDisabled, pickNewAnswer, startClock, _i, _len, _ref;
-      game = $rootScope.game = {};
-      game.choices = cdShuffle($rootScope.content.choices).slice(0, $rootScope.gameDuration);
-      _ref = game.choices;
+      var card, clockRunning, endGame, endRound, finishFlipAnimation, gameStatus, inputDisabled, newRound, picked, pickedCorrect, pickedIncorrect, runClock, setNewAnswer, _i, _len, _ref;
+      $scope.deck = cdShuffle($rootScope.content.choices).slice(0, $rootScope.gameDuration);
+      _ref = $scope.deck;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        choice = _ref[_i];
-        choice.mistakes = 0;
-        choice.wrongTiles = [];
-        choice.wrongNames = [];
+        card = _ref[_i];
+        card.mistakes = 0;
+        card.wrongTiles = [];
+        card.wrongNames = [];
       }
-      game.results = [];
-      game.time = 0;
-      game.mistakes = 0;
-      inputDisabled = false;
-      $scope.flipMode = {};
-      $scope.flipMode.flipIn = false;
-      $scope.flipMode.flipOut = false;
-      $scope.restart = function() {
-        return $location.path("/begin");
+      gameStatus = $rootScope.gameStatus = {
+        results: [],
+        time: 0,
+        mistakes: 0
       };
-      clockStarted = false;
-      startClock = function() {
-        if (!clockStarted) {
-          clockStarted = true;
+      inputDisabled = false;
+      picked = {};
+      $scope.flipMode = {};
+      clockRunning = false;
+      runClock = function() {
+        if (!clockRunning) {
+          clockRunning = true;
           return cdClock($scope, 1000 / $rootScope.ticksPerSecond, function() {
-            return game.time += 1;
+            return gameStatus.time += 1;
           });
         }
       };
-      pickNewAnswer = function() {
-        return cdPickRandom(game.choices.slice(0, $rootScope.displayedChoices));
+      $scope.restart = function() {
+        return $location.path("/begin");
+      };
+      setNewAnswer = function() {
+        $scope.answerIndex = Math.floor(Math.random() * $scope.hand.length);
+        return $scope.answerCard = $scope.hand[$scope.answerIndex];
+      };
+      $scope.pick = function(card, index) {
+        if (inputDisabled) {
+          return;
+        }
+        inputDisabled = true;
+        runClock();
+        picked = {
+          card: card,
+          index: index,
+          correct: index === $scope.answerIndex
+        };
+        if (picked.correct) {
+          pickedCorrect();
+        } else {
+          pickedIncorrect();
+        }
+        $scope.flipMode.flipOut = true;
+        return $scope.nextAnimation = endRound;
+      };
+      pickedCorrect = function() {
+        gameStatus.results.push(picked.card);
+        return $scope.correctness = picked.card.correctness = "correct";
+      };
+      pickedIncorrect = function() {
+        gameStatus.mistakes++;
+        $scope.answerCard.wrongTiles.push(picked.card);
+        $scope.answerCard.mistakes++;
+        picked.card.wrongNames.push($scope.answerCard);
+        picked.card.mistakes++;
+        return $scope.correctness = picked.card.correctness = "wrong";
+      };
+      endRound = function() {
+        delete picked.card.correctness;
+        delete $scope.correctness;
+        if ($scope.hand.length > 1) {
+          return newRound();
+        } else {
+          return endGame();
+        }
+      };
+      newRound = function() {
+        inputDisabled = false;
+        if (picked.correct) {
+          $scope.hand.splice(picked.index, 1);
+          if ($scope.deck.length > 0) {
+            $scope.hand.splice(picked.index, 0, $scope.deck.pop());
+          }
+          setNewAnswer();
+        }
+        $scope.flipMode.flipOut = false;
+        $scope.flipMode.flipIn = true;
+        return $scope.nextAnimation = finishFlipAnimation;
+      };
+      finishFlipAnimation = function() {
+        $scope.flipMode.flipIn = false;
+        return $scope.nextAnimation = null;
+      };
+      endGame = function() {
+        gameStatus.complete = true;
+        return $location.path("/results");
       };
       return cdTimeout(1000, function() {
-        $scope.currentAnswer = pickNewAnswer();
-        return $scope.pick = function(choice, index) {
-          var pickedCorrectAnswer;
-          startClock();
-          if (!(inputDisabled || game.complete)) {
-            inputDisabled = true;
-            pickedCorrectAnswer = choice === $scope.currentAnswer;
-            if (pickedCorrectAnswer) {
-              game.choices.splice(index, 1);
-              game.results.push(choice);
-              $scope.correctness = choice.correctness = "correct";
-            } else {
-              game.mistakes++;
-              $scope.currentAnswer.wrongTiles.push(choice);
-              $scope.currentAnswer.mistakes++;
-              choice.wrongNames.push($scope.currentAnswer);
-              choice.mistakes++;
-              $scope.correctness = choice.correctness = "wrong";
-            }
-            $scope.flipMode.flipOut = true;
-            return $scope.flipComplete = function() {
-              var lastAnswer;
-              delete choice.correctness;
-              delete $scope.correctness;
-              if (game.choices.length === 0) {
-                game.complete = true;
-                return $location.path("/results");
-              } else {
-                inputDisabled = false;
-                if (pickedCorrectAnswer) {
-                  lastAnswer = $scope.currentAnswer;
-                  while ($scope.currentAnswer === lastAnswer) {
-                    $scope.currentAnswer = pickNewAnswer();
-                  }
-                }
-                $scope.flipMode.flipOut = false;
-                $scope.flipMode.flipIn = true;
-                return $scope.flipComplete = function() {
-                  $scope.flipMode.flipIn = false;
-                  return $scope.filpComplete = null;
-                };
-              }
-            };
-          }
-        };
+        $scope.hand = $scope.deck.splice(0, $rootScope.handSize);
+        return setNewAnswer();
       });
     });
   });
@@ -226,37 +263,37 @@
 
   angular.module('results', []).controller("ResultsCtrl", function($rootScope, $scope) {
     return $rootScope.contentPromise.then(function() {
-      var choice, game, secondsPerQuestion;
-      game = $rootScope.game;
-      if (!(game != null ? game.complete : void 0)) {
+      var choice, gameStatus, secondsPerQuestion;
+      gameStatus = $rootScope.gameStatus;
+      if (!(gameStatus != null ? gameStatus.complete : void 0)) {
         return;
       }
-      secondsPerQuestion = (game.time / $rootScope.ticksPerSecond) / $rootScope.gameDuration;
+      secondsPerQuestion = (gameStatus.time / $rootScope.ticksPerSecond) / $rootScope.gameDuration;
       $scope.quip = (function() {
         switch (false) {
-          case !(game.mistakes === 0 && secondsPerQuestion <= 1.2):
+          case !(gameStatus.mistakes === 0 && secondsPerQuestion <= 1.2):
             return "That Was Amazing!";
-          case !(game.mistakes === 0 && secondsPerQuestion >= 2.2):
+          case !(gameStatus.mistakes === 0 && secondsPerQuestion >= 2.2):
             return "You should go faster.";
-          case !(game.mistakes <= 1 && secondsPerQuestion <= 1.7):
+          case !(gameStatus.mistakes <= 1 && secondsPerQuestion <= 1.7):
             return "Great job!";
-          case !(game.mistakes <= 2 && secondsPerQuestion <= 3.0):
+          case !(gameStatus.mistakes <= 2 && secondsPerQuestion <= 3.0):
             return "You did pretty well.";
-          case !(game.mistakes <= 6 && secondsPerQuestion <= 1.3):
+          case !(gameStatus.mistakes <= 6 && secondsPerQuestion <= 1.3):
             return "You should slow down.";
-          case !(game.mistakes >= $rootScope.gameDuration):
+          case !(gameStatus.mistakes >= $rootScope.gameDuration):
             return "You're not even trying!";
           default:
             return "Rough day, huh?";
         }
       })();
-      if (game.time < $rootScope.bestTime) {
-        $rootScope.bestTime = game.time;
-        $rootScope.bestMistakes = game.mistakes;
+      if (gameStatus.time < $rootScope.bestTime) {
+        $rootScope.bestTime = gameStatus.time;
+        $rootScope.bestMistakes = gameStatus.mistakes;
       }
       return $scope.badResults = ((function() {
         var _i, _len, _ref, _results;
-        _ref = game.results;
+        _ref = gameStatus.results;
         _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           choice = _ref[_i];
@@ -322,19 +359,6 @@
       return {
         cancel: cancel
       };
-    };
-  });
-
-
-  /*
-  --------------------------------------------
-       Begin cdPickRandom.coffee
-  --------------------------------------------
-   */
-
-  angular.module('cdPickRandom', []).service("cdPickRandom", function() {
-    return function(array) {
-      return array[Math.random() * array.length | 0];
     };
   });
 

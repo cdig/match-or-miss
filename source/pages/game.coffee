@@ -1,145 +1,162 @@
 angular.module 'game', []
 
-.controller "GameCtrl", ($rootScope, $scope, $location, $route, cdShuffle, cdClock, cdPickRandom, cdTimeout)->
+.controller "GameCtrl", ($rootScope, $scope, $location, $route, cdShuffle, cdClock, cdTimeout)->
 	
-	# Wait for the content to finish loading
+	# Wait for the content JSON to finish loading
 	$rootScope.contentPromise.then ()->
 		
-		# Create an object to hold all the data about the current run of the game that we'll use to give feedback
-		game = $rootScope.game = {}
-	
-		# Generate a shuffled COPY of the choices from the content JSON
-		game.choices = cdShuffle($rootScope.content.choices)[0...$rootScope.gameDuration]
-	
-		# Prepare each choice with fields used to track player performance
-		for choice in game.choices
-			choice.mistakes = 0
-			choice.wrongTiles = []
-			choice.wrongNames = []
-	
-		# Store the correct choices in order, for the end of the game
-		game.results = []
-	
-		# Keep track of time
-		game.time = 0
-	
-		# Keep track of how much they screwed up
-		game.mistakes = 0
-	
-		# We'll be disabling input when animations run
+		# We've got the content JSON, so here's where we set up a new game.
+		
+		# Make a shuffled "deck" of "cards" from the content JSON. Only keep "gameDuration"-worth of the deck.
+		$scope.deck = cdShuffle($rootScope.content.choices)[0...$rootScope.gameDuration]
+		
+		# Prepare each card with fields used to track player performance
+		for card in $scope.deck
+			card.mistakes = 0
+			card.wrongTiles = []
+			card.wrongNames = []
+		
+		# Create an object to hold info about the current run of the game, which we'll use to give feedback at the end
+		gameStatus = $rootScope.gameStatus =
+			
+			# Store the user's correct picks, in order
+			results: []
+			
+			# Keep track of time
+			time: 0
+			
+			# Keep track of how many times the user screwed up
+			mistakes: 0
+		
+		# Input is disabled when animations are running
 		inputDisabled = false
-	
-		# Prepare a variable to store info about our flipping question prompt
+		
+		# When the user picks a card, this object will store information about it
+		picked = {}
+		
+		# This object will store the state of our flipping question prompt, for controlling the animations
 		$scope.flipMode = {}
-		$scope.flipMode.flipIn = false
-		$scope.flipMode.flipOut = false
-	
+		
+		# Finally, this var just stores if the clock is running
+		clockRunning = false
+		
+		
+		# Now, here's where we define the functions that make the game run
+		
+		# This function is used to start the in-game clock, after the user first picks an answer
+		runClock = ()->
+			if not clockRunning
+				clockRunning = true
+				cdClock $scope, 1000/$rootScope.ticksPerSecond, ()-> # Run the following function every tick (based on $rootScope.ticksPerSecond)
+					gameStatus.time += 1 # Increment the clock by one tick
+		
 		# If the user clicks restart, redirect back to the start screen
 		$scope.restart = ()->
 			$location.path("/begin")
-	
-		# This function is used to start the in-game clock, using the cdTimeout and cdClock helper services
-		clockStarted = false
-		startClock = ()->
-			unless clockStarted
-				clockStarted = true
-				cdClock $scope, 1000/$rootScope.ticksPerSecond, ()-> # Run the following function every tick (based on $rootScope.ticksPerSecond)
-					game.time += 1 # Increment the clock by one tick
 		
-		# This function is used to generate and return a new answer
-		pickNewAnswer = ()->
-			cdPickRandom(game.choices[0...$rootScope.displayedChoices])
+		setNewAnswer = ()->
+			$scope.answerIndex = Math.floor(Math.random() * $scope.hand.length)
+			$scope.answerCard = $scope.hand[$scope.answerIndex]
 		
-		# Delay while the cross-fade and opening animations run
-		cdTimeout 1000, ()->
-		
-			# Get our first answer, and save this function for getting new answers as needed later
-			$scope.currentAnswer = pickNewAnswer()
+		# When someone picks an answer, here's what we do
+		$scope.pick = (card, index)->
 			
-			# When someone picks an answer, here's what we do
-			$scope.pick = (choice, index)->
+			# Bail if we're running animations
+			return if inputDisabled
+			
+			# Disable input while we switch cards
+			inputDisabled = true
+			
+			# Make sure the clock is now running
+			runClock()
+			
+			# Store this information while we run animations
+			picked = 
+				card: card
+				index: index
+				correct: index is $scope.answerIndex
+			
+			# Do the right thing
+			if picked.correct then pickedCorrect() else pickedIncorrect()
+			
+			# Start flipping the question prompt
+			$scope.flipMode.flipOut = true
+			
+			# Set the function that will run when our flip animation finishes
+			$scope.nextAnimation = endRound
+		
+		pickedCorrect = ()->
+			# Save this answer in our results array for the end of the game feedback screen
+			gameStatus.results.push(picked.card)
+			
+			# Set some styles, which triggers animations
+			$scope.correctness = picked.card.correctness = "correct"
+			
+		pickedIncorrect = ()->
+			# Make a note of this in their permanent record
+			gameStatus.mistakes++
+			
+			# Take note that they mistakenly chose the wrong tile for this name
+			$scope.answerCard.wrongTiles.push(picked.card)
+			$scope.answerCard.mistakes++
+			
+			# Take note that they mistakenly chose the wrong name for this tile
+			picked.card.wrongNames.push($scope.answerCard)
+			picked.card.mistakes++
+			
+			# Set some styles, which triggers animations
+			$scope.correctness = picked.card.correctness = "wrong"
+		
+		endRound = ()->
+			# We're done showing specific colours based on how they answered last time
+			delete picked.card.correctness
+			delete $scope.correctness
+			
+			# Decide if we're ready for the next round, or if we're done the game
+			if $scope.hand.length > 1 then newRound() else endGame()
+		
+		newRound = ()->
+			# Let's re-enable input, so the user can do some more picking!
+			inputDisabled = false
+			
+			# If they picked the right answer, update our hand
+			if picked.correct
 				
-				# Start the clock when the user first answers
-				startClock()
+				# Remove the picked card
+				$scope.hand.splice(picked.index, 1)
 				
-				# Do nothing if they've recently picked an answer and we're running animations, or if we're done the game
-				unless inputDisabled or game.complete
-					
-					# Disable input while we run animations
-					inputDisabled = true
-					
-					# Record whether they picked the correct answer
-					pickedCorrectAnswer = choice is $scope.currentAnswer
-					
-					# If they picked the right answer
-					if pickedCorrectAnswer 
-					
-						# Remove the right answer from the list
-						game.choices.splice(index, 1)
-						
-						# Save this answer in our results array for the end of the game feedback screen
-						game.results.push(choice)
-					
-						# Set some styles, which triggers animations
-						$scope.correctness = choice.correctness = "correct"
-					
-					# If they picked the wrong answer
-					else
-						
-						# Keep track of how much they screwed up
-						game.mistakes++
-						
-						# Record that they mistakenly chose the wrong tile for this name
-						$scope.currentAnswer.wrongTiles.push(choice)
-						$scope.currentAnswer.mistakes++
-						
-						# Record that they mistakenly chose the wrong name for this tile
-						choice.wrongNames.push($scope.currentAnswer)
-						choice.mistakes++
-						
-						# Set some styles, which triggers animations
-						$scope.correctness = choice.correctness = "wrong"
-					
-					# Start flipping the question prompt
-					$scope.flipMode.flipOut = true
-					
-					# Wait while the question prompt flips and the choices transition
-					$scope.flipComplete = ()->
-						
-						# We're done showing specific colours based on how they answered last time
-						delete choice.correctness
-						delete $scope.correctness
-						
-						# If we're out of choices, then we're done the whole game!
-						if game.choices.length is 0
-							game.complete = true
-							$location.path("/results")
-						
-						# Well, I guess we're not done the game yet. Let's pick a new answer and run more animations.
-						else
-							
-							# Let's let the user do some more picking!
-							inputDisabled = false
-							
-							# If the user picked the correct answer, then we'll give them a new one
-							if pickedCorrectAnswer
-								
-								# Store our last answer, so we don't ask for it twice in a row
-								lastAnswer = $scope.currentAnswer
-							
-								# Keep trying to pick a new answer until... you know what, just read the nice CoffeeScript
-								while $scope.currentAnswer is lastAnswer
-									$scope.currentAnswer = pickNewAnswer()
-							
-							# It's been 500ms, so we're halfway done the animations.. switch them over!
-							$scope.flipMode.flipOut = false
-							$scope.flipMode.flipIn = true
-							
-							# We've got a new answer and we're flipping back in, so wait another 500ms
-							$scope.flipComplete = ()->
-								
-								# We're done our animation
-								$scope.flipMode.flipIn = false
-								
-								# Stop handling animation
-								$scope.filpComplete = null
+				# Insert a new card from the deck
+				$scope.hand.splice(picked.index, 0, $scope.deck.pop()) if $scope.deck.length > 0
+				
+				# Set one of the new cards to be the right answer
+				setNewAnswer()
+			
+			# Start flipping-in the new prompt
+			$scope.flipMode.flipOut = false
+			$scope.flipMode.flipIn = true
+			
+			# Run this function next after the animation finishes
+			$scope.nextAnimation = finishFlipAnimation
+		
+		# This function cleans up after the flip animation ends
+		finishFlipAnimation = ()->
+			$scope.flipMode.flipIn = false
+			$scope.nextAnimation = null
+		
+		# We'll run this function we're done the whole game!
+		endGame = ()->
+			gameStatus.complete = true
+			$location.path("/results")
+
+		
+		
+		# Finally, here's where the action begins
+		
+		# After the opening animations finish...
+		cdTimeout 1000, ()->
+			
+			# Pull our starting "hand" out of the shuffled deck. Angular will display it.
+			$scope.hand = $scope.deck.splice(0, $rootScope.handSize)
+			
+			# And set a new correct answer
+			setNewAnswer()

@@ -24,7 +24,7 @@ angular.module 'run', []
 		$rootScope.content = angular.fromJson(response.data)
 		
 		# These variables adjust the difficulty and length of the game
-		$rootScope.displayedChoices = $rootScope.content.displayedChoices || 4 # How many choices to show at once?
+		$rootScope.handSize = $rootScope.content.handSize || 4 # How many cards to show at once?
 		$rootScope.gameDuration = $rootScope.content.gameDuration || 16 # How many choices for a whole game?
 		
 	# Handle load failure

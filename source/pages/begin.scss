@@ -1,13 +1,16 @@
 .begin {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 	
 	.title {
-		padding: 12vh 0 6vh;
+		flex: 0 1 auto;
 		font-size: 8em;
-		line-height: 0.4em;
+		line-height: 1em;
+		height: 1.5em;
 		text-shadow: 0 .05em .1em hsla(210,100,10,1);
 		animation: zoom-out-bounce 1.2s linear;
-	
+		
 		.match {
 			color: hsla(182, 80, 35, 1);
 			text-transform: uppercase;
@@ -15,8 +18,7 @@
 	
 		.or {
 			position: relative;
-			top: -.1em;
-			left: -.03em;
+			top: -.6em;
 			font-size: 1.3em;
 			font-weight: normal;
 			color: hsla(31, 100, 60, .9);
@@ -24,15 +26,15 @@
 	
 		.miss {
 			position: relative;
-			top: -.25em;
-			left: -.1em;
+			top: -1.5em;
+			left: .1em;
 			font-style: italic;
 			color: hsla(5, 90, 60, 1);
 		}
 	}
 	
 	.explanation {
-		display: block;
+		flex: 0 1 auto;
 		perspective: 600px;
 		font-size: 1em;
 		
@@ -116,8 +118,8 @@
 	}
 	
 	.start {
+		flex: 0 0 auto;
 		font-size: 2em;
-		margin-top: 2em;
 		animation: zoom-in-bounce .2s linear 1.1s both;
 		
 		.button {
