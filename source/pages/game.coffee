@@ -1,6 +1,6 @@
 angular.module 'game', []
 
-.controller "GameCtrl", ($rootScope, $scope, $location, $route, cdShuffle, cdClock, cdTimeout)->
+.controller "GameCtrl", ($rootScope, $scope, $location, $timeout, $route, cdShuffle, cdClock, cdTimeout)->
 	
 	# Wait for the content JSON to finish loading
 	$rootScope.contentPromise.then ()->
@@ -40,6 +40,13 @@ angular.module 'game', []
 		# Finally, this var just stores if the clock is running
 		clockRunning = false
 		
+		# DEBUG
+		counts =
+			pick: 0
+			endRound: 0
+			newRound: 0
+			finishFlip: 0
+		
 		
 		# Now, here's where we define the functions that make the game run
 		
@@ -75,7 +82,7 @@ angular.module 'game', []
 				card: card
 				index: index
 				correct: index is $scope.answerIndex
-			
+
 			# Do the right thing
 			if picked.correct then pickedCorrect() else pickedIncorrect()
 			
@@ -108,6 +115,8 @@ angular.module 'game', []
 			$scope.correctness = picked.card.correctness = "wrong"
 		
 		endRound = ()->
+			console.log("EndRound " + ++counts.endRound)
+
 			# We're done showing specific colours based on how they answered last time
 			delete picked.card.correctness
 			delete $scope.correctness
@@ -116,9 +125,8 @@ angular.module 'game', []
 			if $scope.hand.length > 1 then newRound() else endGame()
 		
 		newRound = ()->
-			# Let's re-enable input, so the user can do some more picking!
-			inputDisabled = false
-			
+			console.log("NewRound " + ++counts.newRound)
+
 			# If they picked the right answer, update our hand
 			if picked.correct
 				
@@ -136,18 +144,23 @@ angular.module 'game', []
 			$scope.flipMode.flipIn = true
 			
 			# Run this function next after the animation finishes
-			$scope.nextAnimation = finishFlipAnimation
+			$scope.nextAnimation = finishAnimations
 		
-		# This function cleans up after the flip animation ends
-		finishFlipAnimation = ()->
+		# This function cleans up after the animations end
+		finishAnimations = ()->
+			
+			console.log("FinishFlip " + ++counts.finishFlip)
+			
 			$scope.flipMode.flipIn = false
 			$scope.nextAnimation = null
-		
+			
+			# Let's re-enable input, so the user can do some more picking!
+			inputDisabled = false
+
 		# We'll run this function we're done the whole game!
 		endGame = ()->
 			gameStatus.complete = true
 			$location.path("/results")
-
 		
 		
 		# Finally, here's where the action begins

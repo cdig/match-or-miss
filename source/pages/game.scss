@@ -39,12 +39,12 @@
 		
 		.pickTheSymbol {
 			font-size: 2em;
-			animation: roll-in 1s .5s linear both;
+			animation: roll-in 1s .5s linear both; // Intro animation
 		}
 		
 		.question {
 			perspective: 1000px;
-			animation: roll-in 1s 1.5s linear both;
+			animation: roll-in 1s 1.5s linear both; // Intro animation
 			min-height: 3em; // Prevent popping
 			
 			.flipper {
@@ -56,11 +56,11 @@
 				}
 				
 				&.flipOut {
-					animation: roll-out .25s ease-in both;
+					animation: roll-out .2s ease-in both; // Transition animation
 				}
 			
 				&.flipIn {
-					animation: roll-in .25s ease-out both;
+					animation: roll-in .1s ease-out both; // Transition animation
 				}
 			}
 		}
@@ -68,25 +68,30 @@
 
 	.choices {
 		position: relative;
-		animation: roll-in .5s 2.5s linear both;
+		animation: roll-in .5s 2.5s linear both; // Intro animation
 		margin: 0 auto;
+		min-height: 10em;
 		
 		.choice {
 			position: absolute;
 			transform: translateX(-50%);
-			margin: 1em;
+			margin: 1em 0;
 			top: 0;
 			
+			&.incorrect, &.correct {
+				pointer-events: none;
+			}
+			
 			&.ng-leave {
-				animation: tile-exit .5s ease-out both;
+				animation: tile-exit .4s ease-out both; // Transition animation
 			}
 			
 			&.ng-enter {
-				animation: tile-exit .5s reverse ease-out both;
+				animation: tile-exit .2s reverse ease-out both; // Transition animation
 			}
 			
 			& > span {
-				transition: .5s ease all;
+				transition: .4s ease all; // Transition animation
 			}
 		}
 	}

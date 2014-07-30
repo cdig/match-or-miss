@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	
 	font-size: 1.2em;
 	
 	.feedback {
@@ -19,12 +18,12 @@
 		
 		.best {
 			font-size: 1.3em;
-			margin: .3em;
+			margin: .5em;
 			color: #036;
 		}
 		
 		.button {
-			margin-left: 1em;
+			margin: .5em 1em;
 		}
 	}
 	
@@ -43,7 +42,9 @@
 			
 			.image {
 				display: inline-block;
+				vertical-align: middle;
 				width: 7.5em;
+				max-width: 49%;
 				height: 9em;
 				padding: .2em;
 				border: 2px solid #eee;
@@ -58,6 +59,9 @@
 			}
 			
 			.name {
+				display: inline-block;
+				vertical-align: middle;
+				max-width: 49%;
 				margin: .4em 0 0;
 				font-weight: normal;
 				color: #ddd;

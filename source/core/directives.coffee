@@ -1,9 +1,19 @@
 angular.module "directives", []
 
+.directive "body", ()->
+	restrict: "E"
+	link: (scope, elm, attrs)->
+		# Disable overscroll / viewport moving
+		elm.on 'touchmove', (e)->
+			e.preventDefault()
+
+
 .directive "animationEnd", ()->
 	link: (scope, elm, attrs)->
 		elm.on 'webkitAnimationEnd msAnimationEnd animationend', ()->
-			scope[attrs.animationEnd]()
+			console.log "AnimationEnd"
+			call = scope[attrs.animationEnd]
+			if call? then call()
 
 .directive "deck", ()->
 	link: (scope, elm, attrs)->

@@ -38,11 +38,25 @@
   --------------------------------------------
    */
 
-  angular.module("directives", []).directive("animationEnd", function() {
+  angular.module("directives", []).directive("body", function() {
+    return {
+      restrict: "E",
+      link: function(scope, elm, attrs) {
+        return elm.on('touchmove', function(e) {
+          return e.preventDefault();
+        });
+      }
+    };
+  }).directive("animationEnd", function() {
     return {
       link: function(scope, elm, attrs) {
         return elm.on('webkitAnimationEnd msAnimationEnd animationend', function() {
-          return scope[attrs.animationEnd]();
+          var call;
+          console.log("AnimationEnd");
+          call = scope[attrs.animationEnd];
+          if (call != null) {
+            return call();
+          }
         });
       }
     };
@@ -151,9 +165,9 @@
   --------------------------------------------
    */
 
-  angular.module('game', []).controller("GameCtrl", function($rootScope, $scope, $location, $route, cdShuffle, cdClock, cdTimeout) {
+  angular.module('game', []).controller("GameCtrl", function($rootScope, $scope, $location, $timeout, $route, cdShuffle, cdClock, cdTimeout) {
     return $rootScope.contentPromise.then(function() {
-      var card, clockRunning, endGame, endRound, finishFlipAnimation, gameStatus, inputDisabled, newRound, picked, pickedCorrect, pickedIncorrect, runClock, setNewAnswer, _i, _len, _ref;
+      var card, clockRunning, counts, endGame, endRound, finishAnimations, gameStatus, inputDisabled, newRound, picked, pickedCorrect, pickedIncorrect, runClock, setNewAnswer, _i, _len, _ref;
       $scope.deck = cdShuffle($rootScope.content.choices).slice(0, $rootScope.gameDuration);
       _ref = $scope.deck;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -171,6 +185,12 @@
       picked = {};
       $scope.flipMode = {};
       clockRunning = false;
+      counts = {
+        pick: 0,
+        endRound: 0,
+        newRound: 0,
+        finishFlip: 0
+      };
       runClock = function() {
         if (!clockRunning) {
           clockRunning = true;
@@ -218,6 +238,7 @@
         return $scope.correctness = picked.card.correctness = "wrong";
       };
       endRound = function() {
+        console.log("EndRound " + ++counts.endRound);
         delete picked.card.correctness;
         delete $scope.correctness;
         if ($scope.hand.length > 1) {
@@ -227,7 +248,7 @@
         }
       };
       newRound = function() {
-        inputDisabled = false;
+        console.log("NewRound " + ++counts.newRound);
         if (picked.correct) {
           $scope.hand.splice(picked.index, 1);
           if ($scope.deck.length > 0) {
@@ -237,11 +258,13 @@
         }
         $scope.flipMode.flipOut = false;
         $scope.flipMode.flipIn = true;
-        return $scope.nextAnimation = finishFlipAnimation;
+        return $scope.nextAnimation = finishAnimations;
       };
-      finishFlipAnimation = function() {
+      finishAnimations = function() {
+        console.log("FinishFlip " + ++counts.finishFlip);
         $scope.flipMode.flipIn = false;
-        return $scope.nextAnimation = null;
+        $scope.nextAnimation = null;
+        return inputDisabled = false;
       };
       endGame = function() {
         gameStatus.complete = true;

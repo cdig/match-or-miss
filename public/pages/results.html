@@ -2,24 +2,24 @@
 	<div class="feedback">
 		<h1 class="quip">{{quip}}</h1>
 		<h2 class="stats">
-			{{gameDuration}} matches in
-			{{gameStatus.time|time}} seconds with 
-			<ng-pluralize count="gameStatus.mistakes" when="{
+			{{gameDuration}} matches<br>
+			in {{gameStatus.time|time}} seconds<br>
+			with <ng-pluralize count="gameStatus.mistakes" when="{
 				'0':'no mistakes',
 				'one':'just 1 mistake',
 				'other':'{} mistakes'
 			}"></ng-pluralize>.
 		</h2>
 		<h3 class="best">
-			High Score:
-			{{bestTime|time}} seconds with
+			Your best time was
+			{{bestTime|time}} seconds<br> with
 			<ng-pluralize count="bestMistakes" when="{
 				'0':'no mistakes',
 				'one':'just 1 mistake',
 				'other':'{} mistakes'
 			}"></ng-pluralize>.
 		</h3>
-		<h3 class="again">Think you can do better? <a class="button" href="#/game">Play Again</a></h3>
+		<h3 class="again">Think you can do better?<br><a class="button" href="#/game">Play Again</a></h3>
 	</div>
 
 	<div class="review" ng-show="gameStatus.mistakes > 0">
