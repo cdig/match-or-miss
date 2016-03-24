@@ -47,8 +47,8 @@ body {
   top: 5%;
   width: 90%;
   height: 90%;
-  animation: fade-in 1s .5s both;
-  
+  // animation: fade-in 1s 2s both;
+  display: none;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: contain;
