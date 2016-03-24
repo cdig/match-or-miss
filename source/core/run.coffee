@@ -24,9 +24,10 @@ angular.module 'run', []
     # Parse the JSON text into JavaScript objects
     $rootScope.content = angular.fromJson(response.data)
     
-    # These variables adjust the difficulty and length of the game
+    # These variables adjust the rules of the game
     $rootScope.handSize = $rootScope.content.handSize || 4 # How many cards to show at once?
     $rootScope.gameDuration = $rootScope.content.gameDuration || 16 # How many choices for a whole game?
+    $rootScope.promptText = $rootScope.content.promptText || "Pick the symbol named"
     
   # Handle load failure
   $rootScope.contentPromise.catch (reason)->

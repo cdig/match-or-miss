@@ -11,8 +11,8 @@
       }"></ng-pluralize>.
     </h2>
     <h3 class="best">
-      Your best time was
-      {{bestTime|time}} seconds<br> with
+      Your best was
+      {{bestTime|time}} seconds with
       <ng-pluralize count="bestMistakes" when="{
         '0':'no mistakes',
         'one':'just 1 mistake',
@@ -35,4 +35,4 @@
   </div>
 </div>
 
-<h2 ng-hide="gameStatus.complete">You did not complete the game. <a class="button" href="#/game">Start Again</a></h2>
+<h2 ng-hide="gameStatus.complete">You did not complete the game.<br><br><a class="button" href="#/game">Start Again</a></h2>

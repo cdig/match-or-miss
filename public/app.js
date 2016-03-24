@@ -82,7 +82,8 @@
     $rootScope.contentPromise.then(function(response) {
       $rootScope.content = angular.fromJson(response.data);
       $rootScope.handSize = $rootScope.content.handSize || 4;
-      return $rootScope.gameDuration = $rootScope.content.gameDuration || 16;
+      $rootScope.gameDuration = $rootScope.content.gameDuration || 16;
+      return $rootScope.promptText = $rootScope.content.promptText || "Pick the symbol named";
     });
     $rootScope.contentPromise["catch"](function(reason) {
       $rootScope.error = "Loading game data failed: " + reason.statusText + " (" + reason.status + ")";
@@ -228,15 +229,15 @@
       secondsPerQuestion = (gameStatus.time / $rootScope.ticksPerSecond) / $rootScope.gameDuration;
       $scope.quip = (function() {
         switch (false) {
-          case !(gameStatus.mistakes === 0 && secondsPerQuestion <= 1.2):
+          case !(gameStatus.mistakes === 0 && secondsPerQuestion <= 1.3):
             return "That Was Amazing!";
-          case !(gameStatus.mistakes === 0 && secondsPerQuestion >= 2.2):
+          case !(gameStatus.mistakes === 0 && secondsPerQuestion >= 2.5):
             return "You should go faster.";
           case !(gameStatus.mistakes <= 1 && secondsPerQuestion <= 1.7):
             return "Great job!";
           case !(gameStatus.mistakes <= 2 && secondsPerQuestion <= 3.0):
             return "You did pretty well.";
-          case !(gameStatus.mistakes <= 6 && secondsPerQuestion <= 1.3):
+          case !(gameStatus.mistakes <= 6 && secondsPerQuestion <= 1.5):
             return "You should slow down.";
           case !(gameStatus.mistakes >= $rootScope.gameDuration):
             return "You're not even trying!";

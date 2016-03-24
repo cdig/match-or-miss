@@ -1,75 +1,76 @@
 .results {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	font-size: 1.2em;
-	
-	.feedback {
-		padding: 1em 0;
-		background: rgba(white, .3);
-
-		.quip {
-			color: white;
-		}
-		
-		.stats {
-			margin: .5em 0 .2em;
-		}
-		
-		.best {
-			font-size: 1.3em;
-			margin: .5em;
-			color: #036;
-		}
-		
-		.button {
-			margin: .5em 1em;
-		}
-	}
-	
-	.review {
-		padding: 1em;
-		background: rgba(black, .3);
-		
-		h1 {
-			color: white;
-			display: inline-block;
-			border-bottom: 2px solid white;
-		}
-		
-		.current {
-			margin: 1em 0 .5em;
-			
-			.image {
-				display: inline-block;
-				vertical-align: middle;
-				width: 7.5em;
-				max-width: 49%;
-				height: 9em;
-				padding: .2em;
-				border: 2px solid #eee;
-				background: radial-gradient(ellipse at center, #ddd 0%, #999 100%);
-				box-shadow: 5px 5px 15px black;
-				
-				span {
-					display: inline-block;
-					width: 100%;
-					height: 100%;
-				}
-			}
-			
-			.name {
-				display: inline-block;
-				vertical-align: middle;
-				max-width: 49%;
-				margin: .4em 0 0;
-				font-weight: normal;
-				color: #ddd;
-			}
-		}
-		
-		.button {
-			margin: 1em 0 0;
-		}
-	}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.2em;
+  
+  .feedback {
+    padding: .5em 0 2em;
+    
+    .quip {
+      color: white;
+    }
+    
+    .stats {
+      margin: .5em 0 .2em;
+      color: white;
+    }
+    
+    .best {
+      font-size: 1.3em;
+      margin: .5em;
+      color: #ACF;
+    }
+    
+    .button {
+      margin: .5em 1em;
+    }
+  }
+  
+  .review {
+    padding: 1em;
+    background: rgba(black, .3);
+    
+    h1 {
+      color: white;
+      display: inline-block;
+      border-bottom: 2px solid white;
+    }
+    
+    .current {
+      margin: 1em 0 .5em;
+      
+      .image {
+        display: inline-block;
+        vertical-align: middle;
+        width: 7.5em;
+        max-width: calc(49% - 1em);
+        height: 9em;
+        margin-right: 1em;
+        padding: .2em;
+        border: 2px solid #eee;
+        background: radial-gradient(ellipse at center, #ddd 0%, #999 100%);
+        box-shadow: 5px 5px 15px black;
+        
+        span {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      
+      .name {
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 49%;
+        margin: .4em 0 0;
+        font-weight: normal;
+        color: #ddd;
+      }
+    }
+    
+    .button {
+      margin: 1em 0 0;
+    }
+  }
 }
