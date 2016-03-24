@@ -1,28 +1,11 @@
-<h1 class="title"><span class="match">Match</span><br><span class="or">or</span><br><span class="miss">Miss?</span></h1>
-
-<div class="explanation">
-	
-	<h1 class="left prompt">Pick the symbol</h1>
-	<h1 class="right prompt">with this name</h1>
-	
-	<div class="left demo">
-		<div class="choice">
-			<a ng-repeat="choice in randomChoices" ng-show="currentChoice == $index">
-				<span cd-bimg="{{contentPath}}/{{choice.image}}"></span>
-			</a>
-		</div>
-	</div>
-	
-	<div class="right demo">
-		<div class="name">
-			<div ng-repeat="choice in randomChoices" ng-show="currentChoice == $index">
-				<h2>{{choice.name}}</h2>
-			</div>
-		</div>
-	</div>
-	
+<div class="title">
+  <div class="m1"><img src="assets/m.png"></div>
+  <img src="assets/atch.png" class="atch">
+  <img src="assets/or.png" class="or">
+  <div class="m2"><img src="assets/m.png"></div>
+  <img src="assets/iss.png" class="iss">
 </div>
 
 <div class="start">
-	<a class="button" ng-click="start()">Start Playing</a>
+  <a class="button" ng-click="start()">Start Playing</a>
 </div>

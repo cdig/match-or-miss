@@ -1,95 +1,99 @@
+* {
+  touch-action: none;
+}
+
 html {
-	background: url('assets/grid_lines.png'), radial-gradient(ellipse at center, #2a69bf 8%, #07469a 64%, #12386b 100%);
-	background-size: 100vmax, 100%;
-	
-	overflow: hidden; // prevents scroll rubber-banding (desktop)
-	font-family: "helvetica neue", sans-serif;
-	
-	@media (max-width: 800px) { font-size: .9em; }
-	@media (max-width: 700px) { font-size: .8em; }
-	@media (max-width: 600px) { font-size: .7em; }
-	@media (max-width: 500px) { font-size: .6em; }
+  background: url('assets/grid_lines.png'), radial-gradient(ellipse at center, #2a69bf 8%, #07469a 64%, #12386b 100%);
+  background-size: 48px, 100%;
+  background-repeat: repeat, no-repeat;
+  
+  overflow: hidden; // prevents scroll rubber-banding (desktop)
+  font-family: "helvetica neue", sans-serif;
+  
+  @media (max-width: 800px) { font-size: .9em; }
+  @media (max-width: 700px) { font-size: .8em; }
+  @media (max-width: 600px) { font-size: .7em; }
+  @media (max-width: 500px) { font-size: .6em; }
 }
 
 body {
-	position: relative; // contain absolutes
-	margin: 0 auto;
-	text-align: center;
-	
-	width: 100%;
-	height: 100%;
+  position: relative; // contain absolutes
+  margin: 0 auto;
+  text-align: center;
+  
+  width: 100%;
+  height: 100%;
 }
 
 [ng-view] {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	
-	&.ng-leave {
-		-webkit-animation: fade-out 1s both;
-		animation: fade-out 1s both;
-	}
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  &.ng-leave {
+    animation: fade-out 1s both;
+  }
 
-	&.ng-enter {
-		-webkit-animation: fade-in 1s .5s both;
-		animation: fade-in 1s .5s both;
-	}
+  &.ng-enter {
+    animation: fade-in 1s .5s both;
+  }
 }
 
 #background {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	
-	background-position: center bottom 2%;
-	background-repeat: no-repeat;
-	background-size: contain;
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 90%;
+  height: 90%;
+  animation: fade-in 1s .5s both;
+  
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 [cd-bimg] {
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .button {
-	display: inline-block;
-	padding: .2em .5em .1em;
-	border: 2px solid #e4dea9;
-	border-radius: 1em;
-	background: radial-gradient(ellipse at center, #e4dea9 0%, #b2ac77 100%);
-	box-shadow: 5px 5px 15px black;
+  display: inline-block;
+  padding: .2em .5em .1em;
+  border: 2px solid #e4dea9;
+  border-radius: 1em;
+  background: radial-gradient(ellipse at center, #e4dea9 0%, #b2ac77 100%);
+  box-shadow: 5px 5px 15px black;
 }
 
 .choice {
-	display: inline-block;
-	width: 7.5em;
-	height: 9em;
-	padding: .2em;
-	vertical-align: middle;
-	border: 2px solid #e4dea9;
-	background: radial-gradient(ellipse at center, #e4dea9 0%, #b2ac77 100%);
-	box-shadow: 5px 5px 15px black;
-	
-	span {
-		display: inline-block;
-		width: 100%;
-		height: 100%;
-	}
+  display: inline-block;
+  width: 7.5em;
+  height: 9em;
+  padding: .2em;
+  vertical-align: middle;
+  border: 2px solid #e4dea9;
+  background: radial-gradient(ellipse at center, #e4dea9 0%, #b2ac77 100%);
+  box-shadow: 5px 5px 15px black;
+  
+  span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .name {
-	color: #BBB580;
+  color: #BBB580;
 }
 
 .wrong {
-	background: #7c131a!important;
+  background: #7c131a!important;
 }
 
 .correct {
-	background: hsla(130, 40, 50, 1)!important;
+  background: hsla(130, 40, 50, 1)!important;
 }
