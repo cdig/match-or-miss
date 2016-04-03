@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="app">
+<html ng-app="app" mom-bimg="{{contentPath}}/{{content.backgroundImage}}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
@@ -11,7 +11,7 @@
     <script src="lib/angular-touch.min.js"></script>
     <script src="app.js"></script>
   </head>
-  <body cd-bimg="{{contentPath}}/{{content.backgroundImage}}">
+  <body>
     <lbs-header>
       <menu-button>
         <img src="assets/lbs-logo.svg"> <span>Back to Menu</span>

@@ -1,19 +1,9 @@
 .game {
-  // The CSS is set up such that if this flex doesn't work for whatever reason, the layout should still look good.
-  // Comment-out the following 4 lines to test
-  display: flex;
-  flex-flow: row wrap; // Needed or else the top gets cut off when the viewport is short
-  justify-content: center;
-  align-items: center;
-  
   .container {
-    flex: 0 0 100%; // IE Fix
-    display: inline-block; // IE10 fix
-    width: 100%;
-    padding-bottom: 1em;
+    padding-bottom: 4vh;
     
     .hud {
-      margin: 1em 0 2em;
+      margin: 5vh 0;
       font-size: 2em;
       animation: fade-in 5s .5s both;
       
@@ -42,14 +32,13 @@
         font-size: 2em;
         padding: .2em .4em;
         background-color: #2a69bf; // Improves readability;
-        animation: slide-left .7s 1s linear both; // Intro animation
+        animation: slide-left .7s 1s linear backwards; // Intro animation
       }
       
       .question {
         min-height: 6em; // Prevent popping
-        margin: 0 0 .5em;
         perspective: 1000px;
-        animation: slide-right .7s 1.4s linear both; // Intro animation
+        animation: slide-right .7s 1.4s linear backwards; // Intro animation
         
         .flipper {
           h1 {
@@ -69,7 +58,7 @@
         }
       }
     }
-
+    
     .choices {
       position: relative;
       animation: roll-in .5s 2.5s linear both; // Intro animation
@@ -79,8 +68,16 @@
       .choice {
         position: absolute;
         top: 0;
+        display: inline-block;
+        width: 7.5em;
+        height: 9em;
         margin: 1em 0;
+        padding: .2em;
+        border: 2px solid #e4dea9;
         transform: translateX(-50%);
+        vertical-align: middle;
+        background: radial-gradient(ellipse at center, #e4dea9 0%, #b2ac77 100%);
+        box-shadow: 5px 5px 15px black;
         touch-action: manipulation;
         
         &.incorrect, &.correct {
@@ -95,7 +92,10 @@
           animation: tile-exit .2s reverse ease-out both; // Transition animation
         }
         
-        & > span {
+        span {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
           transition: .4s ease all; // Transition animation
         }
       }

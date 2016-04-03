@@ -1,15 +1,8 @@
 .results {
-  // The CSS is set up such that if this flex doesn't work for whatever reason, the layout should still look good.
-  // Comment-out the following 4 lines to test
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
   
   .incomplete {
-    flex: 1 1 auto; // IE Fix
-    display: inline-block; // IE10 fix
-    margin: 1em;
+    display: inline-block;
+    margin: 20vh 0 0;
     padding: 1em;
     background: rgba(black, .5);
     span {
@@ -18,18 +11,17 @@
   }
   
   .complete {
-    flex: 1 1 auto; // IE Fix
-    display: inline-block; // IE10 fix
+    display: inline-block;
     font-size: 1.2em;
-    margin-top: 2em;
+    margin-top: 10vh;
     
     .review {
       display: inline-block;
       width: 30em;
-      max-width: 100%;
+      max-width: 100vw;
+      margin: 1em 0;
       padding: 0 1em 1em;
-      margin: 1em;
-      vertical-align: bottom;
+      vertical-align: top;
       background: rgba(black, .5);
       
       h1 {
@@ -80,13 +72,23 @@
     
     .feedback {
       display: inline-block;
-      margin: 1em;
-      padding: 1em;
-      vertical-align: bottom;
+      margin: 1em 0;
+      padding: 0 1em 1em;
+      vertical-align: top;
       background: rgba(black, .5);
+      
+      .yourScore {
+        display: inline-block;
+        margin-top: -1em;
+        padding: .1em .3em;
+        border-bottom: 2px solid white;
+        color: white;
+        background: black;
+      }
       
       .quip {
         color: white;
+        margin-top: .5em;
       }
       
       .stats {
@@ -101,6 +103,7 @@
       }
       
       .button {
+        font-size: 1.2em;
         margin: .5em 1em;
       }
     }

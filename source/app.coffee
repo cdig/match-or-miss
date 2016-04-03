@@ -1,3 +1,4 @@
+# @codekit-append "scripts/momBimg.coffee"
 # @codekit-append "scripts/cdBimg.coffee"
 # @codekit-append "scripts/cdClock.coffee"
 # @codekit-append "scripts/cdShuffle.coffee"
@@ -31,6 +32,7 @@ angular.module 'app', [
   'directives' # This module contains special extensions to HTML
   'filters' # This module provides some helpful filters
   'run' # This module handles loading and parsing data for our app
+  'momBimg' # This is a modified version of cdBimg, for the HTML tag
   
   # These modules define the behaviour for each page in our app
   'begin'
