@@ -1,98 +1,102 @@
 .game {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	
-	.hud {
-		flex: 1 0 auto;
-		font-size: 2em;
-		margin: 1em 0 0;
-		animation: fade-in 5s 5s both;
-		
-		span, a {
-			display: inline-block;
-			border-radius: 1em;
-			padding: .2em .5em .1em;
-		}
-		
-		span {
-			margin: 0 2%;
-			color: white;
-			background: rgba(white, 0.1);
-		}
-		
-		a {
-			background: hsla(55, 40, 60, 1);
-		}
-	}
-	
-	.main {
-		flex: 1 0 auto;
-	}
-	
-	.spacer {
-		flex: 1 1 auto;
-	}
-	
-	.prompt {
-		font-size: 1.2em;
-		
-		.pickTheSymbol {
-			font-size: 2em;
-			animation: roll-in 1s .5s linear both; // Intro animation
-		}
-		
-		.question {
-			perspective: 1000px;
-			animation: roll-in 1s 1.5s linear both; // Intro animation
-			min-height: 3em; // Prevent popping
-			
-			.flipper {
-				h1 {
-					display: inline-block;
-					padding: .2em .4em .1em;
-					background: black;
-					color: white;
-				}
-				
-				&.flipOut {
-					animation: roll-out .2s ease-in both; // Transition animation
-				}
-			
-				&.flipIn {
-					animation: roll-in .1s ease-out both; // Transition animation
-				}
-			}
-		}
-	}
+  // The CSS is set up such that if this flex doesn't work for whatever reason, the layout should still look good.
+  // Comment-out the following 4 lines to test
+  display: flex;
+  flex-flow: row wrap; // Needed or else the top gets cut off when the viewport is short
+  justify-content: center;
+  align-items: center;
+  
+  .container {
+    width: 100%;
+    padding-bottom: 1em;
+    
+    .hud {
+      margin: 1em 0 2em;
+      font-size: 2em;
+      animation: fade-in 5s .5s both;
+      
+      span, a {
+        display: inline-block;
+        border-radius: 1em;
+        padding: .2em .5em .1em;
+      }
+      
+      span {
+        margin: 0 2%;
+        color: white;
+        background: rgba(white, 0.1);
+      }
+      
+      a {
+        background: hsla(55, 40, 60, 1);
+      }
+    }
+    
+    .prompt {
+      font-size: 1.2em;
+      
+      .promptText {
+        display: inline-block;
+        font-size: 2em;
+        padding: .2em .4em;
+        background-color: #2a69bf; // Improves readability;
+        animation: slide-left .7s 1s linear both; // Intro animation
+      }
+      
+      .question {
+        min-height: 6em; // Prevent popping
+        margin: 0 0 .5em;
+        perspective: 1000px;
+        animation: slide-right .7s 1.4s linear both; // Intro animation
+        
+        .flipper {
+          h1 {
+            display: inline-block;
+            padding: .2em .4em;
+            background: black;
+            color: white;
+          }
+          
+          &.flipOut {
+            animation: roll-out .15s ease-in both; // Transition animation
+          }
+        
+          &.flipIn {
+            animation: roll-in .07s ease-out both; // Transition animation
+          }
+        }
+      }
+    }
 
-	.choices {
-		position: relative;
-		animation: roll-in .5s 2.5s linear both; // Intro animation
-		margin: 0 auto;
-		min-height: 10em;
-		
-		.choice {
-			position: absolute;
-			transform: translateX(-50%);
-			margin: 1em 0;
-			top: 0;
-			
-			&.incorrect, &.correct {
-				pointer-events: none;
-			}
-			
-			&.ng-leave {
-				animation: tile-exit .4s ease-out both; // Transition animation
-			}
-			
-			&.ng-enter {
-				animation: tile-exit .2s reverse ease-out both; // Transition animation
-			}
-			
-			& > span {
-				transition: .4s ease all; // Transition animation
-			}
-		}
-	}
+    .choices {
+      position: relative;
+      animation: roll-in .5s 2.5s linear both; // Intro animation
+      margin: 0 auto;
+      min-height: 10em;
+      
+      .choice {
+        position: absolute;
+        top: 0;
+        margin: 1em 0;
+        transform: translateX(-50%);
+        touch-action: manipulation;
+        
+        &.incorrect, &.correct {
+          pointer-events: none;
+        }
+        
+        &.ng-leave {
+          animation: tile-exit .4s ease-out both; // Transition animation
+        }
+        
+        &.ng-enter {
+          animation: tile-exit .2s reverse ease-out both; // Transition animation
+        }
+        
+        & > span {
+          transition: .4s ease all; // Transition animation
+        }
+      }
+    }
+  }
 }

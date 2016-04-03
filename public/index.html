@@ -1,28 +1,27 @@
 <!doctype html>
 <html ng-app="app">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
-		<title>Match or Miss?</title>
-		<link href="app.css" rel="stylesheet">
-		<script src="lib/angular.min.js"></script>
-		<script src="lib/angular-animate.min.js"></script>
-		<script src="lib/angular-route.min.js"></script>
-		<script src="lib/angular-touch.min.js"></script>
-		<script src="app.js"></script>
-	</head>
-	<body>
-		<!--[if gte IE 10]><!-->
-		<div id="background" ng-hide="error" cd-bimg="{{contentPath}}/{{content.backgroundImage}}"></div>
-		<h1 class="error" ng-show="error">{{error}}</h1>
-		<div ng-view ng-class="route" ng-hide="error"></div>
-		<!--<![endif]-->
-		<!--[if lt IE 10]>
-		<div style="margin-top:-8em;position:absolute;top:50%;width:100%;">
-			<h1>Your web browser is too old to play this game.</h1>
-			<h3>Please upgrade to Google Chrome, Mozilla Firefox, or Internet Explorer 11.</h3>
-			<h2><a style="color: blue;" href="http://www.carldyke.com/browsers">More Info</a></h2>
-		</div>
-		<![endif]-->
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Match or Miss?</title>
+    <link href="app.css" rel="stylesheet">
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-animate.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/angular-touch.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body cd-bimg="{{contentPath}}/{{content.backgroundImage}}">
+    <lbs-header>
+      <menu-button>
+        <img src="assets/lbs-logo.svg"> <span>Back to Menu</span>
+      </menu-button>
+    </lbs-header>
+    <ng-view
+         ng-class="route"
+         ng-hide="error"
+         >
+    </ng-view>
+    <h1 class="error" ng-show="error">{{error}}</h1>
+  </body>
 </html>

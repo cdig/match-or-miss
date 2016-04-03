@@ -1,3 +1,15 @@
+# @codekit-append "scripts/cdBimg.coffee"
+# @codekit-append "scripts/cdClock.coffee"
+# @codekit-append "scripts/cdShuffle.coffee"
+# @codekit-append "scripts/cdTimeout.coffee"
+# @codekit-append "scripts/config.coffee"
+# @codekit-append "scripts/directives.coffee"
+# @codekit-append "scripts/filters.coffee"
+# @codekit-append "scripts/run.coffee"
+# @codekit-append "pages/begin.coffee"
+# @codekit-append "pages/game.coffee"
+# @codekit-append "pages/results.coffee"
+
 # THIS IS THE TOP OF OUR APP
 
 # We start by creating a master module. We tell Angular about it in /public/index.html: <html ng-app="app">
@@ -32,4 +44,4 @@ angular.module 'app', [
   'cdTimeout'
 ]
 
-# Now that the modules have been specified, the next interesting place to look is the src/core/config.coffee module
+# Now that the modules have been specified, the next interesting place to look is the source/scripts/config.coffee module

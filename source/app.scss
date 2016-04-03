@@ -1,7 +1,14 @@
-@import "common/reset";
-@import "common/animations";
-@import "base/app";
-@import "base/error";
+@import url("https://lunchboxsessions.s3.amazonaws.com/fonts/lato/lato.css");
+
+@import "styles/reset";
+
+@import "styles/animations";
+@import "styles/body";
+@import "styles/error";
+@import "styles/html";
+@import "styles/lbs-header";
+@import "styles/ng-view";
+@import "styles/other-stuff";
 
 @import "pages/begin";
 @import "pages/game";

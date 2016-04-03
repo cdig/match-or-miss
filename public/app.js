@@ -2,6 +2,64 @@
 (function() {
   angular.module('app', ['ngAnimate', 'ngRoute', 'config', 'directives', 'filters', 'run', 'begin', 'game', 'results', 'cdBimg', 'cdClock', 'cdShuffle', 'cdTimeout']);
 
+  angular.module('cdBimg', []).directive("cdBimg", function() {
+    return function(scope, elm, attrs) {
+      return attrs.$observe("cdBimg", function() {
+        if ((attrs.cdBimg != null) && attrs.cdBimg.length > 0) {
+          return elm.css({
+            "background-image": "url(" + attrs.cdBimg + ")"
+          });
+        }
+      });
+    };
+  });
+
+
+  /* SUGGESTED CSS
+  [cd-bimg] {
+  	background-size: cover;
+  	background-repeat: no-repeat;
+  	background-position: center center;
+  }
+   */
+
+  angular.module('cdClock', []).service("cdClock", function($timeout) {
+    return function(scope, time, call) {
+      var callFunc, cancel, timeout;
+      timeout = null;
+      callFunc = function() {
+        call();
+        return timeout = $timeout(callFunc, time);
+      };
+      timeout = $timeout(callFunc, time);
+      cancel = function() {
+        return $timeout.cancel(timeout);
+      };
+      scope.$on("$destroy", cancel);
+      return {
+        cancel: cancel
+      };
+    };
+  });
+
+  angular.module('cdShuffle', []).factory("cdShuffle", function() {
+    return function(input) {
+      return angular.copy(input).sort(function(a, b) {
+        if (Math.random() < 0.5) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+    };
+  });
+
+  angular.module('cdTimeout', []).service("cdTimeout", function($timeout) {
+    return function(time, call) {
+      return $timeout(call, time);
+    };
+  });
+
   angular.module('config', []).config(function($routeProvider) {
     return $routeProvider.when("/begin", {
       controller: "BeginCtrl",
@@ -229,14 +287,18 @@
       secondsPerQuestion = (gameStatus.time / $rootScope.ticksPerSecond) / $rootScope.gameDuration;
       $scope.quip = (function() {
         switch (false) {
-          case !(gameStatus.mistakes === 0 && secondsPerQuestion <= 1.3):
+          case !(gameStatus.mistakes === 0 && secondsPerQuestion <= 1.4):
             return "That Was Amazing!";
-          case !(gameStatus.mistakes === 0 && secondsPerQuestion >= 2.5):
+          case !(gameStatus.mistakes === 0 && secondsPerQuestion >= 3.0):
             return "You should go faster.";
+          case !(gameStatus.mistakes === 0 && secondsPerQuestion <= 2.3):
+            return "Nicely done.";
           case !(gameStatus.mistakes <= 1 && secondsPerQuestion <= 1.7):
-            return "Great job!";
-          case !(gameStatus.mistakes <= 2 && secondsPerQuestion <= 3.0):
-            return "You did pretty well.";
+            return "Great!";
+          case !(gameStatus.mistakes <= 1 && secondsPerQuestion <= 2.2):
+            return "Not bad, not bad..";
+          case !(gameStatus.mistakes <= 3 && secondsPerQuestion <= 3.0):
+            return "Having some trouble?";
           case !(gameStatus.mistakes <= 6 && secondsPerQuestion <= 1.5):
             return "You should slow down.";
           case !(gameStatus.mistakes >= $rootScope.gameDuration):
@@ -264,64 +326,6 @@
         return b.mistakes - a.mistakes;
       });
     });
-  });
-
-  angular.module('cdBimg', []).directive("cdBimg", function() {
-    return function(scope, elm, attrs) {
-      return attrs.$observe("cdBimg", function() {
-        if ((attrs.cdBimg != null) && attrs.cdBimg.length > 0) {
-          return elm.css({
-            "background-image": "url(" + attrs.cdBimg + ")"
-          });
-        }
-      });
-    };
-  });
-
-
-  /* SUGGESTED CSS
-  [cd-bimg] {
-  	background-size: cover;
-  	background-repeat: no-repeat;
-  	background-position: center center;
-  }
-   */
-
-  angular.module('cdClock', []).service("cdClock", function($timeout) {
-    return function(scope, time, call) {
-      var callFunc, cancel, timeout;
-      timeout = null;
-      callFunc = function() {
-        call();
-        return timeout = $timeout(callFunc, time);
-      };
-      timeout = $timeout(callFunc, time);
-      cancel = function() {
-        return $timeout.cancel(timeout);
-      };
-      scope.$on("$destroy", cancel);
-      return {
-        cancel: cancel
-      };
-    };
-  });
-
-  angular.module('cdShuffle', []).factory("cdShuffle", function() {
-    return function(input) {
-      return angular.copy(input).sort(function(a, b) {
-        if (Math.random() < 0.5) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-    };
-  });
-
-  angular.module('cdTimeout', []).service("cdTimeout", function($timeout) {
-    return function(time, call) {
-      return $timeout(call, time);
-    };
   });
 
 }).call(this);

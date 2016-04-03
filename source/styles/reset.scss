@@ -10,16 +10,16 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0;
+  margin: 0;
 }
 
 /* Disable text selection for UI... (Ivan) */
 * {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
 }
 
 
@@ -30,11 +30,11 @@ input,
 textarea,
 .selectable,
 .selectable * {
-	-webkit-user-select: text;
-	-moz-user-select: text;
-	-ms-user-select: text;
-	user-select: text;
-	cursor: inherit;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  cursor: inherit;
 }
 
 
@@ -44,9 +44,9 @@ a *,
 input[type="submit"],
 input[type="checkbox"],
 button {
-	color: inherit;
-	cursor: pointer;
-	text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 
@@ -56,7 +56,7 @@ object,
 canvas,
 progress,
 video {
-	display: block;
+  display: block;
 }
 
 
@@ -66,8 +66,8 @@ video {
 
 /* The page should fill the page! (Ivan) */
 html {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -75,7 +75,7 @@ html {
 *,
 *:before,
 *:after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 
@@ -88,7 +88,7 @@ input[type="tel"],
 input[type="text"],
 input[type="url"],
 textarea {
-	cursor: text;
+  cursor: text;
 }
 
 
@@ -98,13 +98,13 @@ textarea {
 
 /* Set default font to Arial on Windows, Helvetica on Mac */
 html {
-	font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 
 /* Remove default margin */
 body {
-	margin: 0;
+  margin: 0;
 }
 
 
@@ -124,118 +124,118 @@ main,
 nav,
 section,
 summary {
-	display: block;
+  display: block;
 }
 
 
 /* Fix IE 8/9. */
 progress,
 audio {
-	display: inline-block;
+  display: inline-block;
 }
 
 
 /* Fix Chrome, Firefox, and Opera. */
 progress {
-	vertical-align: baseline;
+  vertical-align: baseline;
 }
 
 
 /* Prevent modern browsers from displaying audio without controls. */
 audio:not([controls]) {
-	display: none;
+  display: none;
 }
 
 
 /* Address [hidden] styling not present in IE 8/9/10 */
 [hidden] {
-	display: none;
+  display: none;
 }
 
 
 /* Hide the template element in IE 8/9/11, Safari, and Firefox < 22 */
 template {
-	display: none;
+  display: none;
 }
 
 
 /* Fix active links having a grey background in IE 10 */
 a {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 
 /* Remove those annoying link glows */
 a:active,
 a:hover {
-	outline: 0;
+  outline: 0;
 }
 
 
 /* Don't default to bolder in Firefox, Safari, and Chrome */
 b,
 strong {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 
 /* Standarize h1 values within section and article contexts in Firefox, Safari, and Chrome. */
 h1 {
-	font-size: 2em;
+  font-size: 2em;
 }
 
 
 /* Fix inconsistent and variable font size in all browsers. */
 small {
-	font-size: 80%;
+  font-size: 80%;
 }
 
 
 /* Prevent `sub` and `sup` affecting `line-height` in all browsers. */
 sub,
 sup {
-	font-size: 75%;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sup {
-	top: -0.5em;
+  top: -0.5em;
 }
 
 sub {
-	bottom: -0.25em;
+  bottom: -0.25em;
 }
 
 
 /* Remove border when inside `a` element in IE 8/9/10. */
 img {
-	border: 0;
+  border: 0;
 }
 
 
 /* Correct overflow not hidden in IE 9/10/11. */
 svg:not(:root) {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 
 /* Address margin not present in IE 8/9 and Safari. */
 figure {
-	margin: 1em 40px;
+  margin: 1em 40px;
 }
 
 
 /* Address differences between Firefox and other browsers. */
 hr {
-	height: 0;
+  height: 0;
 }
 
 
 /* Contain overflow in all browsers. */
 pre {
-	overflow: auto;
+  overflow: auto;
 }
 
 
@@ -244,8 +244,8 @@ code,
 kbd,
 pre,
 samp {
-	font-family: monospace, monospace;
-	font-size: 1em;
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
 
 
@@ -258,15 +258,15 @@ input,
 optgroup,
 select,
 textarea {
-	color: inherit; /* 1 */
-	font: inherit; /* 2 */
-	margin: 0; /* 3 */
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
 }
 
 
 /* Address `overflow` set to `hidden` in IE 8/9/10/11. */
 button {
-	overflow: visible;
+  overflow: visible;
 }
 
 
@@ -278,56 +278,56 @@ button,
 html input[type="button"], /* 1 */
 input[type="reset"],
 input[type="submit"] {
-	-webkit-appearance: button; /* 2 */
-	cursor: pointer; /* 3 */
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
 }
 
 
 /* Re-set default cursor for disabled elements. */
 button[disabled],
 html input[disabled] {
-	cursor: default;
+  cursor: default;
 }
 
 
 /* Remove inner padding and border in Firefox */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
+  border: 0;
+  padding: 0;
 }
 
 
 /* Address Firefox setting `line-height` on `input` using `!important` in the UA stylesheet. */
 input {
-	line-height: normal;
+  line-height: normal;
 }
 
 
 /* It's recommended that you don't attempt to style these elements.
  * Firefox's implementation doesn't respect box-sizing, padding, or width.
- * 
+ *
  * Remove excess padding in IE 8/9/10.
  */
 input[type="checkbox"],
 input[type="radio"] {
-	padding: 0;
+  padding: 0;
 }
 
 
 /* Remove default vertical scrollbar in IE 8/9/10/11. */
 textarea {
-	overflow: auto;
+  overflow: auto;
 }
 
 
 /* Remove most spacing between table cells. */
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 td,
 th {
-	padding: 0;
+  padding: 0;
 }

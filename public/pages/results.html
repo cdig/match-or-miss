@@ -1,4 +1,16 @@
 <div class="complete" ng-show="gameStatus.complete">
+  <div class="review" ng-show="gameStatus.mistakes > 0">
+    <div ng-show="badResults.length > 0">
+      <h1>Quick Review</h1>
+      <div class="current" ng-repeat="choice in badResults | limitTo:1">
+        <div class="image"><span cd-bimg="{{contentPath}}/{{choice.image}}"></span></div>
+        <h2 class="name">{{choice.name}}</h2>
+      </div>
+      <h3><a class="button" ng-click="badResults.shift()">Next</a></h3>
+    </div>
+    <h1 ng-hide="badResults.length > 0">You are done reviewing.</h1>
+  </div>
+
   <div class="feedback">
     <h1 class="quip">{{quip}}</h1>
     <h2 class="stats">
@@ -11,28 +23,13 @@
       }"></ng-pluralize>.
     </h2>
     <h3 class="best">
-      Your best was
-      {{bestTime|time}} seconds with
-      <ng-pluralize count="bestMistakes" when="{
-        '0':'no mistakes',
-        'one':'just 1 mistake',
-        'other':'{} mistakes'
-      }"></ng-pluralize>.
+      Your best so far: {{bestTime|time}} seconds.
     </h3>
-    <h3 class="again"><a class="button" href="#/game">Play Again</a></h3>
-  </div>
-
-  <div class="review" ng-show="gameStatus.mistakes > 0">
-    <div ng-show="badResults.length > 0">
-      <h1>Let's Review</h1>
-      <div class="current" ng-repeat="choice in badResults | limitTo:1">
-        <div class="image"><span cd-bimg="{{contentPath}}/{{choice.image}}"></span></div>
-        <h2 class="name">{{choice.name}}</h2>
-      </div>
-      <h3><a class="button" ng-click="badResults.shift()">Next</a></h3>
-    </div>
-    <h1 ng-hide="badResults.length > 0">You are done reviewing.</h1>
+    <h3 class="again"><a class="button" href="#/game">Play Again?</a></h3>
   </div>
 </div>
 
-<h2 ng-hide="gameStatus.complete">You did not complete the game.<br><br><a class="button" href="#/game">Start Again</a></h2>
+<h2 class="incomplete" ng-hide="gameStatus.complete">
+  <span>You did not complete the game.</span>
+  <a class="button" href="#/game">Start Again</a>
+</h2>

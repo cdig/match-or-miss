@@ -1,27 +1,27 @@
-<div class="hud">
-  <span>{{gameStatus.time|time:0}} seconds</span>
-  <a class="restart button" ng-click="restart()">Restart</a>
-  <span>{{hand.length + deck.length}} left</span>
-</div>
+<div class="container">
+  <div class="hud">
+    <span>{{gameStatus.time|time:0}} seconds</span>
+    <a class="restart button" ng-click="restart()">Restart</a>
+    <span>{{hand.length + deck.length}} left</span>
+  </div>
 
-<div class="main">
-  <div class="prompt">
-    <h2 class="pickTheSymbol">{{promptText}}</h2>
-  
-    <div class="question">
-      <div class="flipper" ng-class="flipMode" animation-end="nextAnimation">
-        <h1 ng-class="correctness">{{answerCard.name}}</h1>
+  <div class="main">
+    <div class="prompt">
+      <h2 class="promptText">{{promptText}}</h2>
+    
+      <div class="question">
+        <div class="flipper" ng-class="flipMode" animation-end="nextAnimation">
+          <h1 ng-class="correctness">{{answerCard.name}}</h1>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="choices" deck>
-    <a class="choice" ng-repeat="card in hand" card>
-      <span ng-class="card.correctness">
-        <span cd-bimg="{{contentPath}}/{{card.image}}"></span>
-      </span>
-    </a>
+    
+    <div class="choices" deck>
+      <a class="choice" ng-repeat="card in hand" card>
+        <span ng-class="card.correctness">
+          <span cd-bimg="{{contentPath}}/{{card.image}}"></span>
+        </span>
+      </a>
+    </div>
   </div>
 </div>
-
-<div class="spacer"></div>

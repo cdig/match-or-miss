@@ -6,6 +6,23 @@ It's set up to use CodeKit, so if you have that then just open the project and h
 
 The hydraulic symbol content set is included by default. If you want to try it out with a different content set, replace the existing `public/content/*` with whatever images and `content.json` you want.
 
-Note: The `public/assets/` folder is now used for _application_ assets, not game content.
+Here's an example of the format for the content file:
 
-Copyright 2014 CD Industrial Group Inc.
+```json
+{
+  "title":"Schematic Symbols",
+  "backgroundImage":"background.png",
+  "handSize":4,
+  "gameDuration":10,
+  "promptText":"Pick the symbol named",
+  "choices":[
+    {"image":"symbols/working_pressure_line.png",
+      "name":"Working Pressure Line"},
+    {"image":"symbols/hydraulic_force.png",
+      "name":"Hydraulic Energy Source"}
+  ]
+}
+```
+
+
+Copyright 2014-2016 CD Industrial Group Inc.

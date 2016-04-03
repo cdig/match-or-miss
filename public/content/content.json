@@ -1,8 +1,8 @@
 {
   "title":"Schematic Symbols",
   "backgroundImage":"background.png",
-  "handSize":5,
-  "gameDuration":6,
+  "handSize":4,
+  "gameDuration":8,
   "promptText":"Do the right thing",
   "choices":[
     {"image":"symbols/working_pressure_line.png",

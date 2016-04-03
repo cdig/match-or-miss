@@ -1,76 +1,104 @@
 .results {
+  // The CSS is set up such that if this flex doesn't work for whatever reason, the layout should still look good.
+  // Comment-out the following 4 lines to test
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
   justify-content: center;
-  font-size: 1.2em;
+  align-items: center;
   
-  .feedback {
-    padding: .5em 0 2em;
-    
-    .quip {
+  .incomplete {
+    margin: 1em;
+    padding: 1em;
+    background: rgba(black, .5);
+    span {
       color: white;
-    }
-    
-    .stats {
-      margin: .5em 0 .2em;
-      color: white;
-    }
-    
-    .best {
-      font-size: 1.3em;
-      margin: .5em;
-      color: #ACF;
-    }
-    
-    .button {
-      margin: .5em 1em;
     }
   }
   
-  .review {
-    padding: 1em;
-    background: rgba(black, .3);
+  .complete {
+    font-size: 1.2em;
+    margin-top: 2em;
     
-    h1 {
-      color: white;
+    .review {
       display: inline-block;
-      border-bottom: 2px solid white;
-    }
-    
-    .current {
-      margin: 1em 0 .5em;
+      width: 30em;
+      max-width: 100%;
+      padding: 0 1em 1em;
+      margin: 1em;
+      vertical-align: bottom;
+      background: rgba(black, .5);
       
-      .image {
+      h1 {
         display: inline-block;
-        vertical-align: middle;
-        width: 7.5em;
-        max-width: calc(49% - 1em);
-        height: 9em;
-        margin-right: 1em;
-        padding: .2em;
-        border: 2px solid #eee;
-        background: radial-gradient(ellipse at center, #ddd 0%, #999 100%);
-        box-shadow: 5px 5px 15px black;
+        margin-top: -1em;
+        padding: .1em .3em;
+        border-bottom: 2px solid white;
+        color: white;
+        background: black;
+      }
+      
+      .current {
+        margin: 1em 0 .5em;
         
-        span {
+        .image {
           display: inline-block;
-          width: 100%;
-          height: 100%;
+          vertical-align: middle;
+          width: 7.5em;
+          max-width: calc(49% - 1em);
+          height: 9em;
+          margin-right: 1em;
+          padding: .2em;
+          border: 2px solid #eee;
+          background: radial-gradient(ellipse at center, #ddd 0%, #999 100%);
+          box-shadow: 5px 5px 15px black;
+          
+          span {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        
+        .name {
+          display: inline-block;
+          vertical-align: middle;
+          max-width: 49%;
+          margin: .4em 0 0;
+          font-weight: normal;
+          color: #ddd;
         }
       }
       
-      .name {
-        display: inline-block;
-        vertical-align: middle;
-        max-width: 49%;
-        margin: .4em 0 0;
-        font-weight: normal;
-        color: #ddd;
+      .button {
+        margin: 1em 0 0;
       }
     }
     
-    .button {
-      margin: 1em 0 0;
+    .feedback {
+      display: inline-block;
+      margin: 1em;
+      padding: 1em;
+      vertical-align: bottom;
+      background: rgba(black, .5);
+      
+      .quip {
+        color: white;
+      }
+      
+      .stats {
+        margin: .5em 0 .2em;
+        color: white;
+      }
+      
+      .best {
+        font-size: 1.3em;
+        margin: .5em;
+        color: #ACF;
+      }
+      
+      .button {
+        margin: .5em 1em;
+      }
     }
   }
 }
