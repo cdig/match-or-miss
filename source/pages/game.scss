@@ -7,6 +7,8 @@
   align-items: center;
   
   .container {
+    flex: 0 0 100%; // IE Fix
+    display: inline-block; // IE10 fix
     width: 100%;
     padding-bottom: 1em;
     

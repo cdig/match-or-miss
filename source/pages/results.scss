@@ -7,6 +7,8 @@
   align-items: center;
   
   .incomplete {
+    flex: 1 1 auto; // IE Fix
+    display: inline-block; // IE10 fix
     margin: 1em;
     padding: 1em;
     background: rgba(black, .5);
@@ -16,6 +18,8 @@
   }
   
   .complete {
+    flex: 1 1 auto; // IE Fix
+    display: inline-block; // IE10 fix
     font-size: 1.2em;
     margin-top: 2em;
     

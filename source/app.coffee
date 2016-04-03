@@ -22,7 +22,7 @@ angular.module 'app', [
   # These first two modules are add-ons for Angular, located in /public/lib/
   'ngAnimate' # This module makes it easy to add animations when events happen
   'ngRoute' # This module lets us have different code run on different pages
-  # 'ngTouch' # This module improves the interactivity of the app on mobile devices
+  'ngTouch' # This module improves the interactivity of the app on mobile devices
   
   # The rest of the modules are the code for our app. Source files in /src/ are compiled by CodeKit into /public/app
   

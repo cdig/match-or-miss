@@ -3,7 +3,7 @@ html {
   background: url('assets/grid_lines.png'), radial-gradient(ellipse at center, #2a69bf 8%, #07469a 64%, #12386b 100%);
   background-size: 48px, 100%;
   background-repeat: repeat, no-repeat;
-  overflow: hidden;
+  // overflow: hidden;
   
   @media (max-width: 800px) { font-size: .9em; }
   @media (max-width: 700px) { font-size: .8em; }
