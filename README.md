@@ -24,5 +24,7 @@ Here's an example of the format for the content file:
 }
 ```
 
+Reminder - tiles will start to overlap on small devices like phones. 5 is probably the max hand size to choose.
+
 
 Copyright 2014-2016 CD Industrial Group Inc.
