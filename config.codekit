@@ -1004,22 +1004,6 @@
 		"shouldRunBless": 0,
 		"useLibsass": 1
 		},
-	"\/source\/styles\/lbs-header.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 1,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/source\/styles\/lbs-header.scss",
-		"outputAbbreviatedPath": "\/public\/lbs-header.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 3,
-		"shouldRunAutoprefixer": 1,
-		"shouldRunBless": 0,
-		"useLibsass": 1
-		},
 	"\/source\/styles\/ng-view.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,

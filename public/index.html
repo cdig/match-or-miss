@@ -5,18 +5,13 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
     <title>Match or Miss?</title>
     <link href="app.css" rel="stylesheet">
-    <script src="lib/angular.min.js"></script>
-    <script src="lib/angular-animate.min.js"></script>
-    <script src="lib/angular-route.min.js"></script>
-    <script src="lib/angular-touch.min.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-animate.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/angular-touch.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
-    <lbs-header>
-      <menu-button>
-        <img src="assets/lbs-logo.svg"> <span>Back to Menu</span>
-      </menu-button>
-    </lbs-header>
     <ng-view
          ng-class="route"
          ng-hide="error"

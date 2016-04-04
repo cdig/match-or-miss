@@ -75,7 +75,8 @@
     };
   });
 
-  angular.module('config', []).config(function($routeProvider) {
+  angular.module('config', []).config(function($routeProvider, $sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://lunchboxsessions.s3.amazonaws.com/**']);
     return $routeProvider.when("/begin", {
       controller: "BeginCtrl",
       templateUrl: "pages/begin.html"
@@ -304,18 +305,18 @@
         switch (false) {
           case !(gameStatus.mistakes === 0 && secondsPerQuestion <= 1.4):
             return "That Was Amazing!";
-          case !(gameStatus.mistakes === 0 && secondsPerQuestion >= 3.0):
-            return "You should go faster.";
           case !(gameStatus.mistakes === 0 && secondsPerQuestion <= 2.3):
             return "Nicely done.";
+          case !(gameStatus.mistakes === 0 && secondsPerQuestion > 2.3):
+            return "You should go faster.";
           case !(gameStatus.mistakes <= 1 && secondsPerQuestion <= 1.7):
             return "Great!";
-          case !(gameStatus.mistakes <= 1 && secondsPerQuestion <= 2.2):
+          case !(gameStatus.mistakes <= 2 && secondsPerQuestion <= 2.2):
             return "Not bad, not bad..";
-          case !(gameStatus.mistakes <= 3 && secondsPerQuestion <= 3.0):
-            return "Having some trouble?";
           case !(gameStatus.mistakes <= 6 && secondsPerQuestion <= 1.5):
             return "You should slow down.";
+          case !(gameStatus.mistakes <= 3 && secondsPerQuestion <= 3.0):
+            return "Having some trouble?";
           case !(gameStatus.mistakes >= $rootScope.gameDuration):
             return "You're not even trying!";
           default:

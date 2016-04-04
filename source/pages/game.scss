@@ -32,13 +32,13 @@
         font-size: 2em;
         padding: .2em .4em;
         background-color: #2a69bf; // Improves readability;
-        animation: slide-left .7s 1s linear backwards; // Intro animation
+        animation: fade-in .7s 1.2s linear backwards; // Intro animation
       }
       
       .question {
         min-height: 6em; // Prevent popping
         perspective: 1000px;
-        animation: slide-right .7s 1.4s linear backwards; // Intro animation
+        animation: fade-in .7s 1.6s linear backwards; // Intro animation
         
         .flipper {
           h1 {
